@@ -4,17 +4,19 @@
     grid-auto-rows: max-content 1fr;
     .bi-constructor-sources {
         grid-column: 1/2;
-        grid-row: 1/-1;
+        grid-row: 1/3;
 
         display: grid;
         width: 256px;
-        .bi-sources-header {
-            margin-bottom: 8px;
-        }
+        grid-template-rows: max-content max-content 1fr;
+        grid-gap: 8px;
+        // .bi-sources-header {
+        //     margin-bottom: 8px;
+        // }
     }
     .bi-constructor-settings {
         grid-column: 2/3;
-        grid-row: 1/-1;
+        grid-row: 1/3;
 
         width: 256px;
     }

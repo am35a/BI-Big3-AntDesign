@@ -8,6 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzContentComponent } from 'ng-zorro-antd/layout';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 
 
 @Component({
@@ -24,7 +25,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     NzButtonModule,
     NzDropDownModule,
     NzContentComponent,
-    NzInputModule
+    NzInputModule,
+    NzTreeModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -35,4 +37,40 @@ export class ConstructorComponent implements OnInit {
     console.log("constructor inited")
   }
 
+  nodes = [
+    {
+      title: 'parent 1',
+      key: '100',
+      expanded: true,
+      children: [
+        {
+          title: 'parent 1-0',
+          key: '1001',
+          expanded: true,
+          children: [
+            { title: 'leaf', key: '10010', isLeaf: true },
+            { title: 'leaf', key: '10011', isLeaf: true },
+            { title: 'leaf', key: '10012', isLeaf: true }
+          ]
+        },
+        {
+          title: 'parent 1-1',
+          key: '1002',
+          children: [{ title: 'leaf', key: '10020', isLeaf: true }]
+        },
+        {
+          title: 'parent 1-2',
+          key: '1003',
+          children: [
+            { title: 'leaf', key: '10030', isLeaf: true },
+            { title: 'leaf', key: '10031', isLeaf: true }
+          ]
+        }
+      ]
+    }
+  ];
+
+  nzEvent(event: NzFormatEmitEvent): void {
+    console.log(event);
+  }
 }

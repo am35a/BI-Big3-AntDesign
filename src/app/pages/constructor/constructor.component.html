@@ -5,15 +5,18 @@
     <nz-page-header-subtitle>Информационное дополнение</nz-page-header-subtitle>
     <nz-page-header-extra>
         <nz-space>
-            <button *nzSpaceItem nz-button>
+            <!-- <button *nzSpaceItem nz-button>
                 <span nz-icon nzType="expand"></span>
             </button>
             <button *nzSpaceItem nz-button>
-                <span nz-icon nzType="setting"></span>
+                <span nz-icon nzType="printer"></span>
+            </button> -->
+            <button *nzSpaceItem nz-button>
+                <span nz-icon nzType="info-circle"></span>
             </button>
             <button *nzSpaceItem nz-button nzType="primary">
                 <span nz-icon nzType="save"></span>
-                Просмотр
+                Сохранить
             </button>
             <div *nzSpaceItem>
                 <button
@@ -28,9 +31,14 @@
                 </button>
                 <nz-dropdown-menu #menu="nzDropdownMenu">
                     <ul nz-menu>
-                        <li nz-menu-item>1st menu item length</li>
-                        <li nz-menu-item>2nd menu item length</li>
-                        <li nz-menu-item>3rd menu item length</li>
+                        <li nz-menu-item nzWarning>
+                            <span nz-icon nzType="reload"></span>
+                            Сбросить к началу
+                        </li>
+                        <li nz-menu-item nzDanger>
+                            <span nz-icon nzType="delete"></span>
+                            Удалить
+                        </li>
                     </ul>
                 </nz-dropdown-menu>
             </div>
@@ -51,9 +59,14 @@
                     <span nz-icon nzType="search"></span>
                 </ng-template>
             </div>
+            <div class="bi-sources-list">
+                <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+            </div>
         </div>
         <div class="bi-constructor-settings">
-            settings
+            <strong class="bi-sources-header">
+                Настройки
+            </strong>
         </div>
         <div class="bi-constructor-filters">
             filters
