@@ -1,0 +1,30 @@
+.bi-constructor {
+    display: grid;
+    grid-template-columns: max-content max-content 1fr;
+    grid-auto-rows: max-content 1fr;
+    .bi-constructor-sources {
+        grid-column: 1/2;
+        grid-row: 1/-1;
+
+        display: grid;
+        width: 256px;
+        .bi-sources-header {
+            margin-bottom: 8px;
+        }
+    }
+    .bi-constructor-settings {
+        grid-column: 2/3;
+        grid-row: 1/-1;
+
+        width: 256px;
+    }
+    .bi-constructor-filters {
+        grid-column: 3/4;
+        grid-row: 1/2;
+    }
+    .bi-constructor-editor {
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
+
+}

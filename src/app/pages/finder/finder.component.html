@@ -1,0 +1,40 @@
+<nz-page-header>
+    <nz-page-header-title>Проводник</nz-page-header-title>
+    <nz-page-header-extra>
+        <nz-space>
+            <!-- <button *nzSpaceItem nz-button>
+                <span nz-icon nzType="expand"></span>
+            </button> -->
+            <!-- <button *nzSpaceItem nz-button>
+                <span nz-icon nzType="search"></span>
+            </button> -->
+            <!-- <button *nzSpaceItem nz-button nzType="primary">
+                <span nz-icon nzType="save"></span>
+                Просмотр
+            </button> -->
+            <!-- <nz-segmented *nzSpaceItem [nzOptions]="
+                [
+                    { label: 'Список', value: 'List', icon: 'bars' },
+                    { label: 'Сетка', value: 'Kanban', icon: 'appstore' }
+                ]
+            "></nz-segmented> -->
+        </nz-space>
+    </nz-page-header-extra>
+</nz-page-header>
+<nz-content>
+    <!-- <div class="inner-content"> -->
+        <nz-tabset [nzSize]="'small'" [nzSelectedIndex]="0" bi-over-inner-tabs>
+            <nz-tab nzTitle="Дашборды">
+                <div class="inner-content">
+                    Дашборды...
+                </div>
+            </nz-tab>
+            <nz-tab nzTitle="Отчеты">
+                <div class="inner-content">
+                    Отчеты...
+                </div>
+            </nz-tab>
+        </nz-tabset>
+    <!-- </div> -->
+
+</nz-content>

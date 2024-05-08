@@ -7,10 +7,12 @@ import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzContentComponent } from 'ng-zorro-antd/layout';
+import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
 
 @Component({
-  selector: 'app-welcome',
+  selector: 'app-finder',
   host: {
     'class': 'd-contents'
   },
@@ -22,15 +24,17 @@ import { NzContentComponent } from 'ng-zorro-antd/layout';
     NzSpaceModule,
     NzButtonModule,
     NzDropDownModule,
-    NzContentComponent
+    NzContentComponent,
+    NzSegmentedModule,
+    NzTabsModule
   ],
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.less']
+  templateUrl: './finder.component.html',
+  styleUrls: ['./finder.component.less']
 })
-export class WelcomeComponent implements OnInit {
+export class FinderComponent implements OnInit {
 
   ngOnInit() {
-    console.log("welcome inited")
+    console.log("finder inited")
   }
 
 }

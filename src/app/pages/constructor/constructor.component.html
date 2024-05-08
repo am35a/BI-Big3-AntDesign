@@ -38,7 +38,28 @@
     </nz-page-header-extra>
 </nz-page-header>
 <nz-content>
-    <div class="inner-content">
-        Content will be here!
+    <div class="inner-content bi-constructor">
+        <div class="bi-constructor-sources">
+            <strong class="bi-sources-header">
+                Источники
+            </strong>
+            <div class="bi-sources-search">
+                <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
+                    <input type="text" nz-input placeholder="Поиск в источнике"/>
+                </nz-input-group>
+                <ng-template #suffixIconSearch nzSize="small">
+                    <span nz-icon nzType="search"></span>
+                </ng-template>
+            </div>
+        </div>
+        <div class="bi-constructor-settings">
+            settings
+        </div>
+        <div class="bi-constructor-filters">
+            filters
+        </div>
+        <div class="bi-constructor-editor">
+            constructor
+        </div>
     </div>
 </nz-content>

@@ -7,6 +7,7 @@ import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzContentComponent } from 'ng-zorro-antd/layout';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 
 @Component({
@@ -22,7 +23,8 @@ import { NzContentComponent } from 'ng-zorro-antd/layout';
     NzSpaceModule,
     NzButtonModule,
     NzDropDownModule,
-    NzContentComponent
+    NzContentComponent,
+    NzInputModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']

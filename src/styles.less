@@ -28,11 +28,28 @@ nz-content {
 .ant-page-header {
     padding: 8px 12px;
 }
+.ant-page-header-footer {
+    margin-top: 8px;
+}
 
 /* режим конструктора */
 .ant-layout.ant-layout-edit-mode {
     .ant-layout-header,
     .ant-layout-sider {
         display: none;
+    }
+}
+
+/* app-finder */
+[bi-over-inner-tabs] {
+    height: 100%;
+    > .ant-tabs-nav {
+        margin: 0;
+    }
+    .ant-tabs-content {
+        height: 100%;
+        .ant-tabs-tabpane {
+            height: 100%;
+        }
     }
 }
