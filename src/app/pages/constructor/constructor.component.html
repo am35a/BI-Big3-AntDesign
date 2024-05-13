@@ -83,8 +83,27 @@
 
             </div>
         </div>
-        <div class="inner-content bi-constructor-editor">
-            constructor
+        <div class="bi-constructor-editor">
+            <div class="bi-editor-grid">
+            </div>
+            <div class="bi-editor-ui">
+                <div bi-editor-ui>
+                    <div class="bi-expand">
+                        <button nz-button [nzType]="'link'" [nzSize]="'small'">
+                            <span nz-icon nzType="expand" nzTheme="outline"></span>
+                        </button>
+                    </div>
+                    <div class="bi-zoom cmp_bi-zoom">
+                        <button nz-button [nzType]="'link'" [nzSize]="'small'">
+                            <span nz-icon nzType="minus"></span>
+                        </button>
+                        <small>100%</small>
+                        <button nz-button [nzType]="'link'" [nzSize]="'small'">
+                            <span nz-icon nzType="plus"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </nz-content>

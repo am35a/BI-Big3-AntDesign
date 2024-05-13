@@ -38,5 +38,46 @@
         grid-column: 3/4;
         grid-row: 2/3;
     }
+    .bi-constructor-editor {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        .bi-editor-grid {
+            grid-column: 1/-1;
+            grid-row: 1/-1;
+        }
+        .bi-editor-ui {
+            grid-column: 1/-1;
+            grid-row: 1/-1;
+            
+            // display: grid;
+            // grid-template-columns: 1fr;
+            // grid-template-rows: 1fr;
 
+            .bi-zoom {
+                grid-column: 1/-1;
+                grid-row: 1/-1;
+
+                // justify-self: end;
+                align-self: end;
+            }
+            .bi-expand {
+                grid-column: 1/-1;
+                grid-row: 1/-1;
+
+                // justify-self: end;
+                align-self: start;
+            }
+        }
+    }
+}
+
+
+.cmp_bi-zoom {    
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-gap: 4px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
 }

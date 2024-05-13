@@ -9,7 +9,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzContentComponent } from 'ng-zorro-antd/layout';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
-import { NzDividerModule } from 'ng-zorro-antd/divider'
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 
 @Component({
@@ -28,7 +29,8 @@ import { NzDividerModule } from 'ng-zorro-antd/divider'
     NzContentComponent,
     NzInputModule,
     NzTreeModule,
-    NzDividerModule
+    NzDividerModule,
+    NzTagModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
