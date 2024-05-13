@@ -9,6 +9,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzContentComponent } from 'ng-zorro-antd/layout';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
+import { NzDividerModule } from 'ng-zorro-antd/divider'
 
 
 @Component({
@@ -26,7 +27,8 @@ import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
     NzDropDownModule,
     NzContentComponent,
     NzInputModule,
-    NzTreeModule
+    NzTreeModule,
+    NzDividerModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -65,7 +67,24 @@ export class ConstructorComponent implements OnInit {
             { title: 'leaf', key: '10030', isLeaf: true },
             { title: 'leaf', key: '10031', isLeaf: true }
           ]
-        }
+        },
+        {
+          title: 'parent 1-3',
+          key: '1004',
+          expanded: true,
+          children: [
+            { title: 'beaf', key: '10030', isLeaf: true },
+            { title: 'beaf', key: '10031', isLeaf: true },
+            { title: 'beaf', key: '10032', isLeaf: true },
+            { title: 'beaf', key: '10033', isLeaf: true },
+            { title: 'beaf', key: '10034', isLeaf: true },
+            { title: 'beaf', key: '10035', isLeaf: true },
+            { title: 'beaf', key: '10036', isLeaf: true },
+            { title: 'beaf', key: '10037', isLeaf: true },
+            { title: 'beaf', key: '10038', isLeaf: true },
+            { title: 'beaf', key: '10039', isLeaf: true }
+          ]
+        },
       ]
     }
   ];

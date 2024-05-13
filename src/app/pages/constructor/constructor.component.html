@@ -46,11 +46,14 @@
     </nz-page-header-extra>
 </nz-page-header>
 <nz-content>
-    <div class="inner-content bi-constructor">
-        <div class="bi-constructor-sources">
-            <strong class="bi-sources-header">
-                Источники
-            </strong>
+    <div class="inner-content- bi-constructor">
+        <div class="inner-content bi-constructor-sources">
+            <div class="bi-sources-header">
+                <strong>Источники</strong>
+                <button nz-button nzType="text" [nzSize]="'small'" title="Свернуть панель">
+                    <span nz-icon nzType="menu-fold"></span>
+                </button>
+            </div>
             <div class="bi-sources-search">
                 <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
                     <input type="text" nz-input placeholder="Поиск в источнике"/>
@@ -63,15 +66,24 @@
                 <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
             </div>
         </div>
-        <div class="bi-constructor-settings">
-            <strong class="bi-sources-header">
-                Настройки
-            </strong>
+        <div class="inner-content bi-constructor-settings">
+            <div class="bi-settings-header">
+                <strong>Настройки</strong>
+                <button nz-button nzType="text" [nzSize]="'small'" title="Свернуть панель">
+                    <span nz-icon nzType="menu-fold"></span>
+                </button>
+            </div>
+            <div class="bi-settings-list">
+                аккордионы
+            </div>
         </div>
-        <div class="bi-constructor-filters">
-            filters
+        <div class="inner-content bi-constructor-filters">
+            <span nz-icon nzType="filter" nzTheme="fill"></span>
+            <div>
+
+            </div>
         </div>
-        <div class="bi-constructor-editor">
+        <div class="inner-content bi-constructor-editor">
             constructor
         </div>
     </div>
