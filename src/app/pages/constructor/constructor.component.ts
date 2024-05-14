@@ -104,6 +104,14 @@ export class ConstructorComponent implements OnInit {
   canvasScale: number = 100;
   canvasTranslateX: number = 0;
   canvasTranslateY: number = 0;
+  
+  getEditorCanvasBgTransform() {
+    return {
+      'background-size': `${this.canvasScale}%`,
+      'background-position-x': `calc(${this.canvasTranslateX}px + 50%)`,
+      'background-position-y': `calc(${this.canvasTranslateY}px + 50%)`
+    };
+  }
 
   getCanvasTransform() {
     return {
