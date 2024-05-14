@@ -84,7 +84,40 @@
             </div>
         </div>
         <div class="bi-constructor-editor">
-            <div class="bi-editor-grid">
+            <div class="bi-editor">
+
+                <svg class="tl-grid" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    [ngStyle]="getCanvasTransform()"
+                >
+                    <defs>
+                        <pattern id="grid-64" width="640" height="640" patternUnits="userSpaceOnUse">
+                            <circle class="tl-grid-dot" cx="253.2473718458616" cy="581.2893782493705" r="1" opacity="1"></circle>
+                        </pattern>
+                        <pattern id="grid-16" width="160" height="160" patternUnits="userSpaceOnUse">
+                            <circle class="tl-grid-dot" cx="93.24737184586161" cy="101.28937824937054" r="1" opacity="1"></circle>
+                        </pattern>
+                        <pattern id="grid-4" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <circle class="tl-grid-dot" cx="13.247371845861608" cy="21.289378249370543" r="1" opacity="1"></circle>
+                        </pattern>
+                        <pattern id="grid-1" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <circle class="tl-grid-dot" cx="3.2473718458616077" cy="1.289378249370543" r="1" opacity="0.2"></circle>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid-64)"></rect>
+                    <rect width="100%" height="100%" fill="url(#grid-16)"></rect>
+                    <rect width="100%" height="100%" fill="url(#grid-4)"></rect>
+                    <rect width="100%" height="100%" fill="url(#grid-1)"></rect>
+                </svg>
+
+                <div
+                    class="bi-editor-grid"
+                    [ngStyle]="getCanvasTransform()"
+                >
+                    dash
+                </div>
+                <div>
+
+                </div>
             </div>
             <div class="bi-editor-ui">
                 <div class="bi-editor-ui">
@@ -93,15 +126,32 @@
                             <span nz-icon nzType="expand" nzTheme="outline"></span>
                         </button>
                     </div>
-                    <div class="bi-zoom cmp_bi-zoom">
-                        <button nz-button [nzType]="'link'" [nzSize]="'small'">
+                    <nz-button-group class="bi-zoom">
+                        <button
+                            (click)="canvasScale = canvasScale - 1"
+                            nz-button [nzSize]="'small'"
+                            nzTooltipTitle="Zoom out (Ctrl -)" nzTooltipPlacement="top" nz-tooltip
+                            [disabled]="canvasScale <= CANVAS_SCALE_MIN"
+                        >
                             <span nz-icon nzType="minus"></span>
                         </button>
-                        <small>100%</small>
-                        <button nz-button [nzType]="'link'" [nzSize]="'small'">
+                        <button
+                            (click)="canvasScale = 100"
+                            nz-button [nzSize]="'small'"
+                            nzTooltipTitle="Zoom reset" nzTooltipPlacement="top" nz-tooltip
+                            [disabled]="canvasScale === 100"
+                        >
+                            <small>{{canvasScale}}%</small>
+                        </button>
+                        <button
+                            (click)="canvasScale = canvasScale + 1"
+                            nz-button [nzSize]="'small'"
+                            nzTooltipTitle="Zoom in (Ctrl =)" nzTooltipPlacement="top" nz-tooltip
+                            [disabled]="canvasScale >= CANVAS_SCALE_MAX"
+                        >
                             <span nz-icon nzType="plus"></span>
                         </button>
-                    </div>
+                    </nz-button-group>
                 </div>
             </div>
         </div>

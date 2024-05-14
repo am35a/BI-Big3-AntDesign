@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { NgStyle } from '@angular/common';
 
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
@@ -11,6 +12,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 
 @Component({
@@ -30,7 +32,9 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
     NzInputModule,
     NzTreeModule,
     NzDividerModule,
-    NzTagModule
+    NzTagModule,
+    NgStyle,
+    NzToolTipModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -93,5 +97,17 @@ export class ConstructorComponent implements OnInit {
 
   nzEvent(event: NzFormatEmitEvent): void {
     console.log(event);
+  }
+
+  CANVAS_SCALE_MIN = 80;
+  CANVAS_SCALE_MAX = 200;
+  canvasScale: number = 100;
+  canvasTranslateX: number = 0;
+  canvasTranslateY: number = 0;
+
+  getCanvasTransform() {
+    return {
+      transform: `scale(${this.canvasScale}%) translateX(${this.canvasTranslateX}) translateY(${this.canvasTranslateY})`
+    };
   }
 }
