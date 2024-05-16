@@ -46,7 +46,10 @@
     </nz-page-header-extra>
 </nz-page-header>
 <nz-content>
-    <div class="inner-content- bi-constructor">
+    <div
+        class="bi-constructor"
+        [class.bi-expand-editor]="biExpandEditor"
+    >
         <div class="inner-content bi-constructor-sources">
             <div class="bi-sources-header">
                 <strong>Источники</strong>
@@ -77,6 +80,14 @@
                 аккордионы
             </div>
         </div>
+
+<!-- 
+    <div class="bi-container" --bi-container-zoom: 1, --bi-cursor: var(url("data:image/svg+xml, ..."))>
+        <div class="bi-canvas">
+            <div class="bi-shapes" transform: scale(1) translate(0px, 0px);>
+                <div class="bi-shape" >
+ -->
+
         <div class="inner-content bi-constructor-filters">
             <span nz-icon nzType="filter" nzTheme="fill"></span>
             <div>
@@ -84,12 +95,14 @@
             </div>
         </div>
         <div class="bi-constructor-editor">
+
+            <!--
             <div
                 class="bi-editor"
                 [ngStyle]="getEditorCanvasBgTransform()"
             >
 
-                <!-- <svg class="tl-grid" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                < !-- <svg class="tl-grid" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     [ngStyle]="getCanvasTransform()"
                 >
                     <defs>
@@ -110,30 +123,39 @@
                     <rect width="100%" height="100%" fill="url(#grid-16)"></rect>
                     <rect width="100%" height="100%" fill="url(#grid-4)"></rect>
                     <rect width="100%" height="100%" fill="url(#grid-1)"></rect>
-                </svg> -->
+                </svg> -- >
 
                 <div
-                    class="bi-editor-grid"
+                    class="bi-editor-page"
                     [ngStyle]="getCanvasTransform()"
                 >
                     dash
-
-                    <!-- <img src="/assets/images/canvas-bg-grid.svg"> -->
                 </div>
-                <div>
+            </div>
+            -->
+
+            
+
+            <div class="bi-canvas">
+                <div class="bi-shapes">
 
                 </div>
             </div>
+
             <div class="bi-editor-ui">
                 <div class="bi-editor-ui">
                     <div class="bi-expand">
-                        <button nz-button [nzType]="'link'" [nzSize]="'small'">
+                        <button
+                            (click) = "biExpandEditor = !biExpandEditor"
+                            nz-button [nzType]="'link'" [nzSize]="'small'"
+                        >
                             <span nz-icon nzType="expand" nzTheme="outline"></span>
                         </button>
                     </div>
                     <nz-button-group class="bi-zoom">
                         <button
                             (click)="canvasScale = canvasScale - 1"
+                            (dblclick)="canvasScale = canvasScale - 10 >= CANVAS_SCALE_MIN ? canvasScale - 10 : CANVAS_SCALE_MIN"
                             nz-button [nzSize]="'small'"
                             nzTooltipTitle="Zoom out (Ctrl -)" nzTooltipPlacement="top" nz-tooltip
                             [disabled]="canvasScale <= CANVAS_SCALE_MIN"
@@ -150,6 +172,7 @@
                         </button>
                         <button
                             (click)="canvasScale = canvasScale + 1"
+                            (dblclick)="canvasScale = canvasScale + 10 <= CANVAS_SCALE_MAX ? canvasScale + 10 : CANVAS_SCALE_MAX"
                             nz-button [nzSize]="'small'"
                             nzTooltipTitle="Zoom in (Ctrl =)" nzTooltipPlacement="top" nz-tooltip
                             [disabled]="canvasScale >= CANVAS_SCALE_MAX"

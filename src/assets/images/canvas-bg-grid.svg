@@ -10,7 +10,7 @@
             <circle class="tl-grid-dot" cx="0.5" cy="0.5" r=".5" opacity="1"></circle>
         </pattern>
         <pattern id="grid-1" width="10" height="10" patternUnits="userSpaceOnUse">
-            <circle class="tl-grid-dot" cx="0.5" cy="0.5" r=".5" opacity="0.2"></circle>
+            <circle class="tl-grid-dot" cx="0.5" cy="0.5" r=".5" opacity="1"></circle>
         </pattern>
     </defs>
     <rect width="100%" height="100%" fill="url(#grid-64)"></rect>

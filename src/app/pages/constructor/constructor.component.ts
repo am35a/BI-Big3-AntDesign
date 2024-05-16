@@ -99,9 +99,11 @@ export class ConstructorComponent implements OnInit {
     console.log(event);
   }
 
+  biExpandEditor: boolean = false;
+
   CANVAS_SCALE_MIN = 80;
   CANVAS_SCALE_MAX = 200;
-  canvasScale: number = 100;
+  canvasScale: number = 50;
   canvasTranslateX: number = 0;
   canvasTranslateY: number = 0;
   
@@ -115,7 +117,7 @@ export class ConstructorComponent implements OnInit {
 
   getCanvasTransform() {
     return {
-      transform: `scale(${this.canvasScale}%) translateX(${this.canvasTranslateX}) translateY(${this.canvasTranslateY})`
+      transform: `scale(${this.canvasScale}%) translateX(${this.canvasTranslateX}px) translateY(${this.canvasTranslateY}px)`
     };
   }
 }
