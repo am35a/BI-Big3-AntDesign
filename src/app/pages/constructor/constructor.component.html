@@ -57,16 +57,26 @@
                     <span nz-icon nzType="menu-fold"></span>
                 </button>
             </div>
-            <div class="bi-sources-search">
-                <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
-                    <input type="text" nz-input placeholder="Поиск в источнике"/>
-                </nz-input-group>
-                <ng-template #suffixIconSearch nzSize="small">
-                    <span nz-icon nzType="search"></span>
-                </ng-template>
+            <div class="bi-sources-select">
+                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выбирите источник" [nzSize]="'small'">
+                    <nz-option nzLabel="Название источника жанных 1" nzValue="1"></nz-option>
+                    <nz-option nzLabel="Название источника жанных 2" nzValue="2"></nz-option>
+                    <nz-option nzLabel="Название источника жанных 3" nzValue="3"></nz-option>
+                </nz-select>
             </div>
-            <div class="bi-sources-list">
-                <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+            <div class="bi-sources">
+                <div class="bi-sources-search">
+                    <!-- Этот поиск можно прикнутить к списку, рецепт на странице - https://ng.ant.design/components/tree-view/en -->
+                    <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
+                        <input type="text" nz-input placeholder="Поиск в источнике"/>
+                    </nz-input-group>
+                    <ng-template #suffixIconSearch nzSize="small">
+                        <span nz-icon nzType="search"></span>
+                    </ng-template>
+                </div>
+                <div class="bi-sources-list">
+                    <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+                </div>
             </div>
         </div>
         <div class="inner-content bi-constructor-settings">
@@ -149,7 +159,7 @@
                             (click) = "biExpandEditor = !biExpandEditor"
                             nz-button [nzType]="'link'" [nzSize]="'small'"
                         >
-                            <span nz-icon nzType="expand" nzTheme="outline"></span>
+                            <span nz-icon [nzType]="biExpandEditor ? 'compress' : 'expand'" nzTheme="outline"></span>
                         </button>
                     </div>
                     <nz-button-group class="bi-zoom">

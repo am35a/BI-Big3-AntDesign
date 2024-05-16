@@ -13,6 +13,7 @@ import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 
 @Component({
@@ -34,7 +35,8 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
     NzDividerModule,
     NzTagModule,
     NgStyle,
-    NzToolTipModule
+    NzToolTipModule,
+    NzSelectModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -100,6 +102,10 @@ export class ConstructorComponent implements OnInit {
   }
 
   biExpandEditor: boolean = false;
+
+
+  selectedSelectSource = null;
+
 
   CANVAS_SCALE_MIN = 80;
   CANVAS_SCALE_MAX = 200;
