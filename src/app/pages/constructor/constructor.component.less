@@ -55,13 +55,40 @@
         }
         .bi-settings-entities {
             display: grid;
+            margin-left: -4px;
+            margin-right: -4px;
+            padding: 0 4px 8px 4px;
+            border-bottom: 1px solid #d9d9d9;
             // .bi-entities-list {
             //     height: 240px !important;
             //     overflow: auto;
             // }
         }
         .bi-settings-list {
+            .bi-settings-page {
+                display: grid;
+                grid-gap: 12px;
+                .bi-page,
+                .bi-grig {
+                    display: grid;
+                    grid-gap: 8px;
 
+                }
+                .bi-page {
+                    .bi-page-size {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        justify-items: center;
+                    }
+                }
+                .bi-grid {
+                    .bi-grid-size {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        justify-items: center;
+                    }
+                }
+            }
         }
     }
     .bi-constructor-filters {

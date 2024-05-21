@@ -81,7 +81,7 @@
         </div>
         <div class="inner-content bi-constructor-settings">
             <div class="bi-settings-header">
-                <strong>Настройки</strong>
+                <strong><span nz-icon nzType="setting" nzTheme="outline"></span> Настройки</strong>
                 <button nz-button nzType="text" [nzSize]="'small'" title="Свернуть панель">
                     <span nz-icon nzType="menu-fold"></span>
                 </button>
@@ -109,7 +109,57 @@
                 </nz-dropdown-menu>
             </div>
             <div class="bi-settings-list">
-                Настройки
+                <!-- Настройки страницы -->
+                <div nz-typography class="bi-settings-page">
+                    <div class="bi-page">
+                        <strong><span nz-icon nzType="file" nzTheme="outline"></span> Размер страницы</strong>
+                        <nz-select ngModel="0" [nzSize]="'small'">
+                            <nz-option nzValue="0" nzLabel="Авторазмер"></nz-option>
+                            <nz-option nzValue="1" nzLabel="Пользовательский"></nz-option>
+                            <nz-option-group nzLabel="Рабочий стол и ТВ">
+                                <nz-option nzValue="2" nzLabel="Ultra HD - 3840x2160"></nz-option>
+                                <nz-option nzValue="3" nzLabel="Full HD - 1920x1080"></nz-option>
+                            </nz-option-group>
+                            <nz-option-group nzLabel="Телефон">
+                                <nz-option nzValue="5" nzLabel="9:16"></nz-option>
+                                <nz-option nzValue="6" nzLabel="9:21"></nz-option>
+                            </nz-option-group>
+                            <nz-option-group nzLabel="Планшет">
+                                <nz-option nzValue="7" nzLabel="16:10"></nz-option>
+                            </nz-option-group>
+                            <nz-option-group nzLabel="Бумага">
+                                <nz-option nzValue="8" nzLabel="A4"></nz-option>
+                            </nz-option-group>
+                        </nz-select>
+                        <div class="bi-page-size">
+                            <div>
+                                <div><small>Ширина:</small></div>
+                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="10" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                            </div>
+                            <div>
+                                <div><small>Высота:</small></div>
+                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="10" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bi-grid">
+                        <strong><span nz-icon nzType="appstore" nzTheme="outline"></span> Макет сетки</strong>
+                        <div class="bi-grid-size">
+                            <div>
+                                <div><small>Колонки:</small></div>
+                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="10" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                            </div>
+                            <div>
+                                <div><small>Ряды:</small></div>
+                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="10" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                            </div>
+                            <div>
+                                <div><small>Отступ:</small></div>
+                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="10" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
             </div>
         </div>
 

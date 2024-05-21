@@ -14,6 +14,9 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+
 
 
 @Component({
@@ -36,7 +39,9 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzTagModule,
     NgStyle,
     NzToolTipModule,
-    NzSelectModule
+    NzSelectModule,
+    NzTypographyModule,
+    NzInputNumberModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -157,5 +162,5 @@ export class ConstructorComponent implements OnInit {
 
 
   // настройки
-  
+  demoValue = 0
 }
