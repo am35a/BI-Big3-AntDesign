@@ -43,12 +43,25 @@
         grid-column: 2/3;
         grid-row: 1/3;
 
+        display: grid;
         width: 256px;
+        grid-template-rows: max-content max-content 1fr;
+        grid-gap: 8px;
         z-index: 1;
         .bi-settings-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 2px;
+        }
+        .bi-settings-entities {
+            display: grid;
+            // .bi-entities-list {
+            //     height: 240px !important;
+            //     overflow: auto;
+            // }
+        }
+        .bi-settings-list {
+
         }
     }
     .bi-constructor-filters {
@@ -122,7 +135,26 @@
             }
         }
     }
+
 }
+
+.bi-entities {
+    max-height: 240px;
+    display: grid;
+    grid-gap: 4px;
+    grid-template-rows: max-content 1fr;
+    overflow-y: hidden;
+    &.ant-dropdown-menu {
+        padding: 4px;
+    }
+    // .bi-entities-search {
+    // }
+    .bi-entities-list {
+        overflow: auto;
+    }
+}
+
+
 
 .bi-constructor.bi-expand-editor {
     .bi-constructor-sources:not(:hover) {

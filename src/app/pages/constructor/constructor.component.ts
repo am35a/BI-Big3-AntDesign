@@ -47,6 +47,35 @@ export class ConstructorComponent implements OnInit {
     console.log("constructor inited")
   }
 
+  nodesEntities = [
+    {
+      title: 'Название дашборда',
+      key: '100',
+      expanded: true,
+      children: [
+        {
+          title: 'Блок такой-то',
+          key: '1001',
+          expanded: false,
+          children: [
+            { title: 'График такой-то', key: '10010', isLeaf: true }
+          ]
+        },
+        {
+          title: 'Блок сякой-то',
+          key: '1002',
+          children: [
+            { title: 'Отчет номер', key: '10020', isLeaf: true }
+          ]
+        },
+      ]
+    }
+  ];
+
+  nzEvent(event: NzFormatEmitEvent): void {
+    console.log(event);
+  }
+
   nodes = [
     {
       title: 'parent 1',
@@ -96,10 +125,7 @@ export class ConstructorComponent implements OnInit {
       ]
     }
   ];
-
-  nzEvent(event: NzFormatEmitEvent): void {
-    console.log(event);
-  }
+ 
 
   biExpandEditor: boolean = false;
 
@@ -126,4 +152,10 @@ export class ConstructorComponent implements OnInit {
       transform: `scale(${this.canvasScale}%) translateX(${this.canvasTranslateX}px) translateY(${this.canvasTranslateY}px)`
     };
   }
+
+
+
+
+  // настройки
+  
 }

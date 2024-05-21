@@ -58,7 +58,7 @@
                 </button>
             </div>
             <div class="bi-sources-select">
-                <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'">
+                <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'"> <!--[(ngModel)]="selectedSelectSource"-->
                     <nz-option nzLabel="Название источника жанных 1" nzValue="1"></nz-option>
                     <nz-option nzLabel="Название источника жанных 2" nzValue="2"></nz-option>
                     <nz-option nzLabel="Название источника жанных 3" nzValue="3"></nz-option>
@@ -86,8 +86,30 @@
                     <span nz-icon nzType="menu-fold"></span>
                 </button>
             </div>
+            <div class="bi-settings-entities">
+                <!-- Сущности -->
+                <button nz-select nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuEntities" [nzSize]="'small'">
+                    <span nz-text>Название сущности</span>
+                    <span nz-icon nzType="down"></span>
+                </button>
+                <nz-dropdown-menu #menuEntities="nzDropdownMenu">
+                    <div class="ant-dropdown-menu bi-entities">
+                        <div class="bi-entities-search">
+                            <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
+                                <input type="text" nz-input placeholder="Поиск в источнике"/>
+                            </nz-input-group>
+                            <ng-template #suffixIconSearch nzSize="small">
+                                <span nz-icon nzType="search"></span>
+                            </ng-template>
+                        </div>
+                        <div class="bi-entities-list">
+                            <nz-tree [nzData]="nodesEntities" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+                        </div>
+                    </div>
+                </nz-dropdown-menu>
+            </div>
             <div class="bi-settings-list">
-                аккордионы
+                Настройки
             </div>
         </div>
 

@@ -54,3 +54,24 @@ nz-content {
         }
     }
 }
+
+
+[nz-button] {
+    &[nz-dropdown] {
+        &[nz-select] { // выпадающая кнопка типа селект
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+            align-items: baseline;
+            [nz-text] {
+                display: block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            [nztype="down"] {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
