@@ -49,11 +49,19 @@
     <div
         class="bi-constructor"
         [class.bi-expand-editor]="biExpandEditor"
+        [class]="classString"
     >
+    <!-- <span nz-icon [nzType]="biExpandEditor ? 'compress' : 'expand'" nzTheme="outline"></span> -->
+
         <div class="inner-content bi-constructor-sources">
             <div class="bi-sources-header">
-                <strong>Источники</strong>
-                <button nz-button nzType="text" [nzSize]="'small'" title="Свернуть панель">
+                <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
+                <button
+                    (click) = "biEditorUIMap.sources.isSourcesExpand = !biEditorUIMap.sources.isSourcesExpand"
+                    nz-button
+                    nzType="text"
+                    [nzSize]="'small'"
+                    title="Свернуть панель">
                     <span nz-icon nzType="menu-fold"></span>
                 </button>
             </div>
@@ -88,7 +96,7 @@
             </div>
             <div class="bi-settings-entities">
                 <!-- Сущности -->
-                <button nz-select nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuEntities" [nzSize]="'small'">
+                <!--button nz-select nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuEntities" [nzSize]="'small'">
                     <span nz-text>Название сущности</span>
                     <span nz-icon nzType="down"></span>
                 </button>
@@ -106,7 +114,15 @@
                             <nz-tree [nzData]="nodesEntities" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
                         </div>
                     </div>
-                </nz-dropdown-menu>
+                </nz-dropdown-menu-->
+                <nz-tree-select
+                    [nzExpandedKeys]="expandEntities"
+                    [nzNodes]="nodesEntities"
+                    nzShowSearch
+                    nzPlaceHolder="Please select"
+                    [nzSize]="'small'"
+                ></nz-tree-select>
+
             </div>
             <div class="bi-settings-list">
                 <!-- Настройки страницы -->

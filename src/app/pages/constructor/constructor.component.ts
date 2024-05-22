@@ -16,6 +16,7 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 
 
 
@@ -41,7 +42,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
     NzToolTipModule,
     NzSelectModule,
     NzTypographyModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzTreeSelectModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -51,6 +53,9 @@ export class ConstructorComponent implements OnInit {
   ngOnInit() {
     console.log("constructor inited")
   }
+
+  expandEntities = ['100', '1001'];
+  valueEntities?: string;
 
   nodesEntities = [
     {
@@ -133,6 +138,29 @@ export class ConstructorComponent implements OnInit {
  
 
   biExpandEditor: boolean = false;
+  biEditorUIMap = {
+    sources: {
+      isSourcesExpand: false,
+      xPosition: 1
+    },
+    settings: {
+      isSettingsExpand: false,
+      xPosition: 2
+    },
+    editor: {
+      isSettingsExpand: false,
+      xPosition: 3
+    },
+    classString: 'bi-expand-editor',
+    getUIClasses(): void {
+      let classString = ''
+      if(this.sources.isSourcesExpand && this.settings.isSettingsExpand || this.editor.isSettingsExpand) {
+        classString = 'bi-expand-editor'
+      }
+    }
+  }
+  classString = "bi-expand-editor";
+  classExpression = "my-class-1 my-class-2 my-class-3";
 
 
   selectedSelectSource = null;
