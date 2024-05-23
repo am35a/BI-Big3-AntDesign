@@ -183,17 +183,51 @@
 
 
 
-.bi-constructor.bi-expand-editor {
-    .bi-constructor-sources:not(:hover) {
-        grid-row: 1/2;
-        overflow: hidden;
+.bi-constructor {
+    &.bi-expand-sources {
+        .bi-constructor-sources:not(:hover) {
+            grid-row: 1/2;
+            overflow: hidden;
+        }
+        .bi-constructor-sources {
+            grid-column: 2/3;
+            box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        }
+        .bi-constructor-settings {
+            grid-column: 1/2;
+        }
+        .bi-constructor-editor{
+            grid-column: 2/4;
+        }
     }
-    .bi-constructor-settings:not(:hover) {
-        grid-row: 1/2;
-        overflow: hidden;
+    &.bi-expand-settings {
+        .bi-constructor-settings:not(:hover) {
+            grid-row: 1/2;
+            overflow: hidden;
+        }
+        .bi-constructor-settings {
+            box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        }
+        .bi-constructor-editor{
+            grid-column: 2/4;
+        }
     }
-    .bi-constructor-editor{
-        grid-column: 1/4;
+    &.bi-expand-editor {
+        .bi-constructor-sources:not(:hover) {
+            grid-row: 1/2;
+            overflow: hidden;
+        }
+        .bi-constructor-settings:not(:hover) {
+            grid-row: 1/2;
+            overflow: hidden;
+        }
+        .bi-constructor-sources,
+        .bi-constructor-settings {
+            box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        }
+        .bi-constructor-editor{
+            grid-column: 1/4;
+        }
     }
 }
 

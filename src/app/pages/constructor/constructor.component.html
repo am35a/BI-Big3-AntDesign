@@ -48,21 +48,21 @@
 <nz-content>
     <div
         class="bi-constructor"
-        [class.bi-expand-editor]="biExpandEditor"
-        [class]="classString"
+        [class]="biEditorUIMap.classString"
     >
+    <!-- [class.bi-expand-editor]="biExpandEditor" -->
     <!-- <span nz-icon [nzType]="biExpandEditor ? 'compress' : 'expand'" nzTheme="outline"></span> -->
 
         <div class="inner-content bi-constructor-sources">
             <div class="bi-sources-header">
                 <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
                 <button
-                    (click) = "biEditorUIMap.sources.isSourcesExpand = !biEditorUIMap.sources.isSourcesExpand"
+                    (click)="biEditorUIMap.setUIClasses('sources')"
                     nz-button
                     nzType="text"
                     [nzSize]="'small'"
                     title="Свернуть панель">
-                    <span nz-icon nzType="menu-fold"></span>
+                    <span nz-icon [nzType]="biEditorUIMap.sources.isExpand ? 'caret-down' : 'caret-up'"></span>
                 </button>
             </div>
             <div class="bi-sources-select">
@@ -90,9 +90,15 @@
         <div class="inner-content bi-constructor-settings">
             <div class="bi-settings-header">
                 <strong><span nz-icon nzType="setting" nzTheme="outline"></span> Настройки</strong>
-                <button nz-button nzType="text" [nzSize]="'small'" title="Свернуть панель">
-                    <span nz-icon nzType="menu-fold"></span>
+                <button
+                    (click)="biEditorUIMap.setUIClasses('settings')"
+                    nz-button
+                    nzType="text"
+                    [nzSize]="'small'"
+                    title="Свернуть панель">
+                    <span nz-icon [nzType]="biEditorUIMap.settings.isExpand ? 'caret-down' : 'caret-up'"></span>
                 </button>
+
             </div>
             <div class="bi-settings-entities">
                 <!-- Сущности -->
@@ -243,11 +249,12 @@
             <div class="bi-editor-ui">
                 <div class="bi-editor-ui">
                     <div class="bi-expand">
+                        <!-- (click) = "biExpandEditor = !biExpandEditor" -->
                         <button
-                            (click) = "biExpandEditor = !biExpandEditor"
+                            (click)="biEditorUIMap.setUIClasses('editor')"
                             nz-button [nzType]="'link'" [nzSize]="'small'"
                         >
-                            <span nz-icon [nzType]="biExpandEditor ? 'compress' : 'expand'" nzTheme="outline"></span>
+                            <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span>
                         </button>
                     </div>
                     <nz-button-group class="bi-zoom">

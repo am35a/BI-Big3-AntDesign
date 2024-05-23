@@ -140,28 +140,47 @@ export class ConstructorComponent implements OnInit {
   biExpandEditor: boolean = false;
   biEditorUIMap = {
     sources: {
-      isSourcesExpand: false,
+      isExpand: false,
       xPosition: 1
     },
     settings: {
-      isSettingsExpand: false,
+      isExpand: false,
       xPosition: 2
     },
     editor: {
-      isSettingsExpand: false,
+      isExpand: false,
       xPosition: 3
     },
-    classString: 'bi-expand-editor',
-    getUIClasses(): void {
-      let classString = ''
-      if(this.sources.isSourcesExpand && this.settings.isSettingsExpand || this.editor.isSettingsExpand) {
-        classString = 'bi-expand-editor'
+    classString: '',
+    setUIClasses(block: string): void {
+      this.classString = '';
+      switch (block) {
+        case 'sources':
+          if (this.editor.isExpand)
+            this.editor.isExpand = false
+          this.sources.isExpand = !this.sources.isExpand;
+          break;
+        case 'settings':
+          if (this.editor.isExpand)
+            this.editor.isExpand = false
+          this.settings.isExpand = !this.settings.isExpand;
+          break;
+        default:
+          this.editor.isExpand = !this.editor.isExpand;
+          if (!this.editor.isExpand) {
+            this.sources.isExpand = false;
+            this.settings.isExpand = false;
+          }
+          break;
       }
+      if(this.sources.isExpand && !this.settings.isExpand)
+        this.classString = 'bi-expand-sources';
+      if(!this.sources.isExpand && this.settings.isExpand)
+        this.classString = 'bi-expand-settings';
+      if(this.sources.isExpand && this.settings.isExpand || this.editor.isExpand)
+        this.classString = 'bi-expand-editor';
     }
   }
-  classString = "bi-expand-editor";
-  classExpression = "my-class-1 my-class-2 my-class-3";
-
 
   selectedSelectSource = null;
 
