@@ -192,10 +192,20 @@
                 <div class="bi-shape" >
  -->
 
-        <div class="inner-content bi-constructor-filters">
-            <span nz-icon nzType="filter" nzTheme="fill"></span>
-            <div>
-
+        <div class="bi-constructor-filters">
+            <div class="inner-content bi-filters-container">
+                <span nz-icon nzType="filter" nzTheme="fill"></span>
+                <div>
+                    filters
+                </div>
+            </div>
+            <div class="inner-content bi-fullscreen platform-only">
+                <button
+                    nz-button [nzType]="'link'" [nzSize]="'small'"
+                    title="Развернуть конструктор"
+                >
+                    <span nz-icon nzType="expand-alt"></span> <!-- nzType=" блаблаистина ? 'compress-alt' : 'expand-alt'" -->
+                </button>    
             </div>
         </div>
         <div class="bi-constructor-editor">

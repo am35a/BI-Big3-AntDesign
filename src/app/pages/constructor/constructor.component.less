@@ -94,7 +94,17 @@
     .bi-constructor-filters {
         grid-column: 3/4;
         grid-row: 1/2;
+        display: flex;
+        grid-gap: 6px;
         z-index: 1;
+        .bi-filters-container {
+            flex-grow: 1;
+            display: flex;
+            grid-gap: 12px;
+        }
+        .bi-fullscreen {
+            padding: 10px;
+        }
     }
     .bi-constructor-editor {
         grid-column: 3/4;
