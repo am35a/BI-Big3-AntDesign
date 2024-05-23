@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { NgStyle } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
@@ -17,6 +18,9 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+
 
 
 
@@ -27,6 +31,7 @@ import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
   },
   standalone: true,
   imports: [
+    FormsModule,
     RouterOutlet,
     NzIconModule,
     NzPageHeaderModule,
@@ -43,7 +48,9 @@ import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
     NzSelectModule,
     NzTypographyModule,
     NzInputNumberModule,
-    NzTreeSelectModule
+    NzTreeSelectModule,
+    NzFormModule,
+    NzCheckboxModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -209,5 +216,9 @@ export class ConstructorComponent implements OnInit {
 
 
   // настройки
-  demoValue = 0
+  demoValue = 0;
+
+  // block
+  valueBlockName?: string = 'Блок такой-то';
+  isBlockNameChecked: boolean = true;
 }

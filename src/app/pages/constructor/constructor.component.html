@@ -132,7 +132,7 @@
             </div>
             <div class="bi-settings-list">
                 <!-- Настройки страницы -->
-                <div nz-typography class="bi-settings-page">
+                <div nz-typography class="bi-settings-page" style="display: none;">
                     <div class="bi-page">
                         <strong><span nz-icon nzType="file" nzTheme="outline"></span> Размер страницы</strong>
                         <nz-select ngModel="0" [nzSize]="'small'">
@@ -181,6 +181,19 @@
                             </div>
                         </div>
                     </div>                
+                </div>
+                <div nz-typography class="bi-settings-block">
+                    <div class="bi-block">
+                        <strong><span nz-icon nzType="block" nzTheme="outline"></span> Настройка блока</strong>
+                        <div>
+                            <nz-form-control>
+                                <input nz-input placeholder="Название блока" nzSize="small" [(ngModel)]="valueBlockName" />
+                            </nz-form-control>
+                            <nz-form-control>
+                                <label nz-checkbox [(ngModel)]="isBlockNameChecked">Показывать имя блока</label>
+                            </nz-form-control>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
