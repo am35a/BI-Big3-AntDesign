@@ -30,12 +30,23 @@ export class AppComponent {
 
   /* тагл режима конструктора - по умолчанию выключен */
   public isConstructor: boolean = false;
+  public isMetalayer: boolean = false;
 
   /* прослушиваю роут */
   constructor(private router: Router ) {
     router.events.subscribe((val) => {
       if(val instanceof NavigationEnd) // завершение перехода
-        this.isConstructor = val.url === '/constructor'; // проверка перехода в конструктор
+      switch (val.url) { // проверка перехода в конструктор и метаслой
+        case '/constructor': 
+            this.isConstructor = true;
+          break;
+        case '/metalayer':
+            this.isMetalayer = true;
+          break;
+        default:
+            this.isConstructor = this.isMetalayer = false;
+          break;
+      }
     });    
   }
 

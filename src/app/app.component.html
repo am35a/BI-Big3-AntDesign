@@ -1,6 +1,6 @@
 <nz-layout
     class="app-layout"
-    [class.ant-layout-edit-mode]="isConstructor"
+    [class.ant-layout-edit-mode]="isConstructor || isMetalayer"
 >
     <nz-sider class="menu-sidebar"
         nzCollapsible
@@ -33,6 +33,12 @@
                 <a routerLink="constructor">
                     <span nz-icon nzType="tool"></span>
                     <span>Конструктор</span>
+                </a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+                <a routerLink="metalayer">
+                    <span nz-icon nzType="tool"></span>
+                    <span>Метаслои</span>
                 </a>
             </li>
             <li nz-submenu nzTitle="Дашборды" nzIcon="dashboard">
