@@ -14,6 +14,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzFlexModule } from 'ng-zorro-antd/flex';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 @Component({
   selector: 'app-metalayer',
@@ -35,7 +37,9 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
     NzTableModule,
     NzSwitchModule,
     NzSelectModule,
-    NzDividerModule
+    NzDividerModule,
+    NzFlexModule,
+    NzTypographyModule,
   ],
   templateUrl: './metalayer.component.html',
   styleUrls: ['./metalayer.component.less'],
