@@ -41,7 +41,40 @@
         class="bi-metalayer"
         >
         <!-- [class]="biEditorUIMap.classString" -->
-        <div class="inner-content bi-metalayer-01">01</div>
+        <div class="inner-content bi-metalayer-sources">
+            <div class="bi-sources-header">
+                <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
+                <!-- <button
+                    nz-button
+                    nzType="text"
+                    [nzSize]="'small'"
+                    title="Свернуть панель">
+                    <span nz-icon [nzType]="biEditorUIMap.sources.isExpand ? 'caret-down' : 'caret-up'"></span>
+                </button> -->
+            </div>
+            <div class="bi-sources-select">
+                <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'">
+                    <nz-option nzLabel="Название источника жанных 1" nzValue="1"></nz-option>
+                    <nz-option nzLabel="Название источника жанных 2" nzValue="2"></nz-option>
+                    <nz-option nzLabel="Название источника жанных 3" nzValue="3"></nz-option>
+                </nz-select>
+            </div>
+            <div class="bi-sources">
+                <div class="bi-sources-search">
+                    <!-- Этот поиск можно прикнутить к списку, рецепт на странице - https://ng.ant.design/components/tree-view/en -->
+                    <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
+                        <input type="text" nz-input placeholder="Поиск в источнике"/>
+                    </nz-input-group>
+                    <ng-template #suffixIconSearch nzSize="small">
+                        <span nz-icon nzType="search"></span>
+                    </ng-template>
+                </div>
+                <div class="bi-sources-list">
+                    <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+                </div>
+            </div>
+        </div>
+
         <div class="inner-content bi-metalayer-02">02</div>
         <div class="inner-content bi-metalayer-03">03</div>
         <div class="bi-metalayer-editor">
@@ -147,7 +180,6 @@
                 </ng-container>
             </nz-modal>
             <!-- Связи - конец -->
-
 
         </div>
     </div>    

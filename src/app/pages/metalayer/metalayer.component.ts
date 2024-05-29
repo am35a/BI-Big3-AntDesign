@@ -16,6 +16,10 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
+import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
+
 
 @Component({
   selector: 'app-metalayer',
@@ -40,6 +44,15 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     NzDividerModule,
     NzFlexModule,
     NzTypographyModule,
+    NzInputModule,
+    NzTreeSelectModule,
+    NzTreeModule,
+    // NzTagModule,
+    // NzToolTipModule,
+    // NzInputNumberModule,
+    // NzFormModule,
+    // NzCheckboxModule
+
   ],
   templateUrl: './metalayer.component.html',
   styleUrls: ['./metalayer.component.less'],
@@ -90,5 +103,60 @@ export class MetalayerComponent implements OnInit {
     }
   ];
   // конец
+
+  nzEvent(event: NzFormatEmitEvent): void {
+    console.log(event);
+  }
+
+  nodes = [
+    {
+      title: 'parent 1',
+      key: '100',
+      expanded: true,
+      children: [
+        {
+          title: 'parent 1-0',
+          key: '1001',
+          expanded: true,
+          children: [
+            { title: 'leaf', key: '10010', isLeaf: true },
+            { title: 'leaf', key: '10011', isLeaf: true },
+            { title: 'leaf', key: '10012', isLeaf: true }
+          ]
+        },
+        {
+          title: 'parent 1-1',
+          key: '1002',
+          children: [{ title: 'leaf', key: '10020', isLeaf: true }]
+        },
+        {
+          title: 'parent 1-2',
+          key: '1003',
+          children: [
+            { title: 'leaf', key: '10030', isLeaf: true },
+            { title: 'leaf', key: '10031', isLeaf: true }
+          ]
+        },
+        {
+          title: 'parent 1-3',
+          key: '1004',
+          expanded: true,
+          children: [
+            { title: 'beaf', key: '10030', isLeaf: true },
+            { title: 'beaf', key: '10031', isLeaf: true },
+            { title: 'beaf', key: '10032', isLeaf: true },
+            { title: 'beaf', key: '10033', isLeaf: true },
+            { title: 'beaf', key: '10034', isLeaf: true },
+            { title: 'beaf', key: '10035', isLeaf: true },
+            { title: 'beaf', key: '10036', isLeaf: true },
+            { title: 'beaf', key: '10037', isLeaf: true },
+            { title: 'beaf', key: '10038', isLeaf: true },
+            { title: 'beaf', key: '10039', isLeaf: true }
+          ]
+        },
+      ]
+    }
+  ];
+
 
 }
