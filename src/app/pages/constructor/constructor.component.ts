@@ -217,6 +217,7 @@ export class ConstructorComponent implements OnInit {
 
   // настройки
   demoValue = 0;
+  valuePageName?: string = 'Дашборд такой-то';
 
   // block
   valueBlockName?: string = 'Блок такой-то';
