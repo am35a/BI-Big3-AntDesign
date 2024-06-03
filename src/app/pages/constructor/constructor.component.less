@@ -65,6 +65,7 @@
             // }
         }
         .bi-settings-list {
+            overflow-y: auto;
             .bi-settings-page {
                 display: grid;
                 grid-gap: 12px;
@@ -95,7 +96,6 @@
                 .bi-block {
                     display: grid;
                     grid-gap: 8px;
-
                 }
             }
         }
@@ -182,6 +182,13 @@
         }
     }
 
+}
+.bi-charts-editor {
+    display: grid;
+    grid-template-columns: minmax(256px, 50%) 1fr;
+    gap: 16px;
+    overflow: hidden;
+    height: 320px;
 }
 
 .bi-entities {

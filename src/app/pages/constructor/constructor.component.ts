@@ -20,9 +20,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-
-
-
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 @Component({
   selector: 'app-constructor',
@@ -50,7 +49,9 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
     NzInputNumberModule,
     NzTreeSelectModule,
     NzFormModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    NzModalModule,
+    NzCollapseModule,
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -222,4 +223,21 @@ export class ConstructorComponent implements OnInit {
   // block
   valueBlockName?: string = 'Блок такой-то';
   isBlockNameChecked: boolean = true;
+
+
+// Модальное окно связей - начало
+isModalEditCodeLinkVisible = false;
+constructor() {}
+showModalEditCodeLink(): void {
+  this.isModalEditCodeLinkVisible = true;
+}
+handleModalEditCodeLinkOk(): void {
+  console.log('Button ok clicked!');
+  this.isModalEditCodeLinkVisible = false;
+}
+handleModalEditCodeLinkCancel(): void {
+  console.log('Button cancel clicked!');
+  this.isModalEditCodeLinkVisible = false;
+}
+// конец
 }
