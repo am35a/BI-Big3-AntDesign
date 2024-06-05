@@ -249,6 +249,8 @@
                             <nz-list nzBordered nzSize="small">
                                 <nz-list-header>Столбцы</nz-list-header>
                                     <div class="ant-list-items bi-list-small-5-row">
+                                        <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+                                        <!--
                                         <nz-list-item>
                                             <div nz-list-item-extra>Название источника</div>
                                             <div nz-list-item-actions>
@@ -309,6 +311,7 @@
                                                 ><span nz-icon nzType="delete"></span></button>
                                             </div>
                                         </nz-list-item>
+                                    -->
                                     </div>
                                 <!--nz-list-empty/> <!-- если пусто -->
                                 <nz-list-footer>
