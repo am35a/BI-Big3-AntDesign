@@ -42,6 +42,10 @@
     .bi-constructor-settings {
         grid-column: 2/3;
         grid-row: 1/3;
+        &:focus-within,
+        &:has(.ant-select-open) {
+            grid-row: 1/3 !important;
+        }
 
         display: grid;
         width: 256px;
@@ -247,7 +251,10 @@
             grid-row: 1/2;
             overflow: hidden;
         }
-        .bi-constructor-sources,
+        // .bi-constructor-settings:has(.ant-select-open) {
+        //     grid-row: 1/3 !important;
+        // }
+            .bi-constructor-sources,
         .bi-constructor-settings {
             box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
         }
@@ -255,8 +262,10 @@
             grid-column: 1/4;
         }
     }
+    // .bi-constructor-settings:has(.ant-select-open) {
+    //     grid-row: 1/3 !important;
+    // }
 }
-
 .tl-grid {
     position: absolute;
     top: 0;
