@@ -72,6 +72,42 @@
         <div class="inner-content bi-metalayer-semantic">
             <div class="bi-semantic-header">
                 <strong><span nz-icon nzType="container" nzTheme="outline"></span> Семантические слои</strong>
+                <button
+                    nz-button
+                    nzNoAnimation
+                    nz-dropdown
+                    [nzDropdownMenu]="menu"
+                    nzPlacement="bottomRight"
+                    nzTrigger="click"
+                    nzType="text"
+                    nzSize="small"
+                >
+                    <span nz-icon nzType="plus" nzTheme="outline"></span> 
+                </button>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <nz-card
+                        nz-menu
+                        style="width:256px;"
+                        nzSize="small"
+                    >
+                        <nz-form-control>
+                            <nz-form-label nzFor="layer-name" nzSize="small"><strong>Название</strong></nz-form-label>
+                            <input id="layer-name" nz-input placeholder="Название слоя" nzSize="small"/>
+                        </nz-form-control>
+                        <nz-divider [ngStyle]="{'margin': '8px 0'}"></nz-divider>
+                        <div
+                            nz-flex
+                            [nzJustify]="'space-between'"
+                            [nzAlign]="'center'"
+                        >
+                            <button nz-button nzType="default" nzSize="small">Отменить</button>
+                            <button nz-button nzType="primary" nzSize="small">
+                                <span nz-icon nzType="plus"></span> Добавить
+                            </button>
+                        </div>
+
+                    </nz-card>
+                </nz-dropdown-menu>
             </div>
             <div class="bi-semantic-select">
                 <nz-select nzShowSearch nzPlaceHolder="Выбирите слой" [nzSize]="'small'">

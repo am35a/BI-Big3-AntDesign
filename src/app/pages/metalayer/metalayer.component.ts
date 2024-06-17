@@ -19,6 +19,8 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 
 @Component({
@@ -47,10 +49,11 @@ import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
     NzInputModule,
     NzTreeSelectModule,
     NzTreeModule,
+    NzCardModule,
     // NzTagModule,
     // NzToolTipModule,
     // NzInputNumberModule,
-    // NzFormModule,
+    NzFormModule,
     // NzCheckboxModule
 
   ],
