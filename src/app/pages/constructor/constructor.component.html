@@ -462,16 +462,38 @@
         nzCentered
         nzWidth="90%"
         nzTitle="График"
-        class="bi-charts-editor"
         [nzStyle]="{'max-height': '90%'}"
     >
         <ng-container *nzModalContent>
-            <div class="bi-charts-editor">
-                <div class="bi-code">
-                    editor
+            <div class="bi-viz-chart">
+                <div class="bi-viz-bar">
+                    <nz-select
+                        nzPlaceHolder="Выбирите тип"
+                        [nzSize]="'small'"
+                        [ngStyle]="
+                            {'width': '100%'}
+                        "
+                    >
+                        <nz-option nzLabel="Название типа 1" nzValue="1"></nz-option>
+                        <nz-option nzLabel="Название типа 2" nzValue="2"></nz-option>
+                        <nz-option nzLabel="Название типа 3" nzValue="3"></nz-option>
+                    </nz-select>
+                    <button nz-button [nzSize]="'small'">
+                        <span nz-icon nzType="save" nzTheme="outline"></span>
+                        Сохранить шаблон
+                    </button>
+                    <button nz-button [nzSize]="'small'">
+                        <span nz-icon nzType="reload" nzTheme="outline"></span>
+                        Обновить
+                    </button>
                 </div>
-                <div class="bi-preview">
-                    preview
+                <div class="bi-viz-editor">
+                    Редактор...
+                </div>
+                <div class="big3-viz-chart">
+                    <div class="demo-chart">
+                        demo-chart в рамке будет
+                    </div>
                 </div>
             </div>
         </ng-container>
