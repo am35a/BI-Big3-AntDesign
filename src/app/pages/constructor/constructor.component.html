@@ -12,8 +12,11 @@
                 <span nz-icon nzType="printer"></span>
             </button> -->
             <button *nzSpaceItem nz-button>
-                <span nz-icon nzType="info-circle"></span>
+                <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span>
             </button>
+            <!-- <button *nzSpaceItem nz-button>
+                <span nz-icon nzType="info-circle"></span>
+            </button> -->
             <button *nzSpaceItem nz-button nzType="primary">
                 <span nz-icon nzType="save"></span>
                 Сохранить
@@ -354,14 +357,14 @@
                     filters
                 </div>
             </div>
-            <div class="inner-content bi-fullscreen platform-only">
+            <!--div class="inner-content bi-fullscreen platform-only">
                 <button
                     nz-button [nzType]="'link'" [nzSize]="'small'"
                     title="Развернуть конструктор"
                 >
                     <span nz-icon nzType="expand-alt"></span> <!-- nzType=" блаблаистина ? 'compress-alt' : 'expand-alt'" -->
-                </button>    
-            </div>
+                <!--/button>    
+            </div-->
         </div>
         <div class="bi-constructor-editor">
 
@@ -413,15 +416,15 @@
 
             <div class="bi-editor-ui">
                 <div class="bi-editor-ui">
-                    <div class="bi-expand">
+                    <!-- <div class="bi-expand"> -->
                         <!-- (click) = "biExpandEditor = !biExpandEditor" -->
-                        <button
+                        <!-- <button
                             (click)="biEditorUIMap.setUIClasses('editor')"
                             nz-button [nzType]="'link'" [nzSize]="'small'"
                         >
                             <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span>
-                        </button>
-                    </div>
+                        </button> -->
+                    <!-- </div> -->
                     <nz-button-group class="bi-zoom">
                         <button
                             (click)="canvasScale = canvasScale - 1"
