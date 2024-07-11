@@ -21,6 +21,8 @@ import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
+// import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+// import { NzMessageService } from 'ng-zorro-antd/message';
 
 
 @Component({
@@ -55,7 +57,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     // NzInputNumberModule,
     NzFormModule,
     // NzCheckboxModule
-
+    // NzPopconfirmModule,
+    // NzMessageService
   ],
   templateUrl: './metalayer.component.html',
   styleUrls: ['./metalayer.component.less'],
@@ -70,7 +73,6 @@ export class MetalayerComponent implements OnInit {
 
   // Модальное окно связей - начало
   isModalLinkVisible = false;
-  constructor() {}
   showModalLink(): void {
     this.isModalLinkVisible = true;
   }
@@ -161,5 +163,14 @@ export class MetalayerComponent implements OnInit {
     }
   ];
 
+  // cancel(): void {
+  //   this.nzMessageService.info('click cancel');
+  // }
 
+  // confirm(): void {
+  //   this.nzMessageService.info('click confirm');
+  // }
+
+  // constructor(private nzMessageService: NzMessageService) {}
+  constructor() {}
 }
