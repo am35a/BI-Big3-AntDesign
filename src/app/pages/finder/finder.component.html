@@ -27,6 +27,48 @@
             <nz-tab nzTitle="Дашборды">
                 <div class="inner-content">
                     Дашборды...
+                    <hr>
+                    <nz-button-group>
+                        <nz-input-number
+                            [nzSize]="'small'"
+                            nzPlaceHolder="от"
+                            style="
+                                width: 60px;
+                                border-top-right-radius: 0px;
+                                border-bottom-right-radius: 0px
+                            "
+                        ></nz-input-number>
+                        <nz-input-number
+                            [nzSize]="'small'"
+                            nzPlaceHolder="до"
+                            style="
+                                width: 60px;
+                                border-radius: 0px;
+                            "
+                        ></nz-input-number>
+                        <button
+                            nz-button nzType="primary" [nzSize]="'small'"
+                            title="Сбросить"
+                        >
+                            <span nz-icon [nzType]="'reload'"></span>
+                        </button>
+                    </nz-button-group>
+                    <hr>
+                    <nz-button-group>
+                        <input nz-input placeholder="large size" nzSize="small"
+                            style="
+                            width: 120px;
+                            border-top-right-radius: 0px;
+                            border-bottom-right-radius: 0px
+                        "
+                        />
+                        <button
+                            nz-button nzType="primary" [nzSize]="'small'"
+                            title="Сбросить"
+                        >
+                            <span nz-icon [nzType]="'reload'"></span>
+                        </button>
+                    </nz-button-group>
                 </div>
             </nz-tab>
             <nz-tab nzTitle="Отчеты">

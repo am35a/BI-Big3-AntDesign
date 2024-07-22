@@ -10,6 +10,9 @@ import { NzContentComponent } from 'ng-zorro-antd/layout';
 import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+
 
 @Component({
   selector: 'app-finder',
@@ -26,7 +29,10 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
     NzDropDownModule,
     NzContentComponent,
     NzSegmentedModule,
-    NzTabsModule
+    NzTabsModule,
+
+    NzInputModule,
+    NzInputNumberModule
   ],
   templateUrl: './finder.component.html',
   styleUrls: ['./finder.component.less']
