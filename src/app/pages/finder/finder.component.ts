@@ -12,6 +12,8 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
 
 
 @Component({
@@ -32,7 +34,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
     NzTabsModule,
 
     NzInputModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzSelectModule
   ],
   templateUrl: './finder.component.html',
   styleUrls: ['./finder.component.less']

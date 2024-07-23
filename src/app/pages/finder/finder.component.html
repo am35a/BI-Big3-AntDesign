@@ -69,6 +69,29 @@
                             <span nz-icon [nzType]="'reload'"></span>
                         </button>
                     </nz-button-group>
+                    <hr>
+                    <nz-button-group>
+                        <nz-select
+                            nzPlaceHolder="Select a bool"
+                            [nzSize]="'small'"
+                            style="
+                                width: 120px;
+                                border-top-right-radius: 0px;
+                                border-bottom-right-radius: 0px
+                            "
+                        >
+                            <nz-option nzLabel="ИЛИ" nzValue="или"></nz-option>
+                            <nz-option nzLabel="И" nzValue="и"></nz-option>
+                            <nz-option nzLabel="..." nzValue="..."></nz-option>
+                        </nz-select>
+                        <button
+                            nz-button nzType="primary" [nzSize]="'small'"
+                            title="Сбросить"
+                        >
+                            <span nz-icon [nzType]="'reload'"></span>
+                        </button>
+                    </nz-button-group>
+
                 </div>
             </nz-tab>
             <nz-tab nzTitle="Отчеты">
