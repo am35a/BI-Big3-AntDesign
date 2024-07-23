@@ -70,14 +70,12 @@
                         </button>
                     </nz-button-group>
                     <hr>
-                    <nz-button-group>
+                    <nz-input-group nzCompact>
                         <nz-select
                             nzPlaceHolder="Select a bool"
                             [nzSize]="'small'"
                             style="
                                 width: 120px;
-                                border-top-right-radius: 0px;
-                                border-bottom-right-radius: 0px
                             "
                         >
                             <nz-option nzLabel="ИЛИ" nzValue="или"></nz-option>
@@ -87,10 +85,14 @@
                         <button
                             nz-button nzType="primary" [nzSize]="'small'"
                             title="Сбросить"
+                            style="
+                                border-top-left-radius: 0px;
+                                border-bottom-left-radius: 0px
+                            "
                         >
                             <span nz-icon [nzType]="'reload'"></span>
                         </button>
-                    </nz-button-group>
+                    </nz-input-group>
 
                 </div>
             </nz-tab>
