@@ -352,9 +352,38 @@
 
         <div class="bi-constructor-filters">
             <div class="inner-content bi-filters-container">
-                <span nz-icon nzType="filter" nzTheme="fill"></span>
-                <div>
-                    filters
+                <span nz-icon nzType="filter" nzTheme="outline"></span>
+                <nz-button-group>
+                    <button nz-button nz-dropdown [nzDropdownMenu]="filterDropMenu" nzSize="small" nzTrigger="click">
+                      <span nz-icon nzType="plus"></span>
+                    </button>
+                    <nz-dropdown-menu #filterDropMenu="nzDropdownMenu">
+                        <div nz-menu style="padding: 4px;">
+                            <nz-input-group [nzSuffix]="suffixIcon">
+                                <input type="text" nz-input placeholder="Search" [(ngModel)]="nodes" />
+                            </nz-input-group>
+                            <ng-template #suffixIcon>
+                                <span nz-icon nzType="search"></span>
+                            </ng-template>
+                            <nz-tree
+                                style="height: 256px; padding: 4px; overflow-y: auto;"
+                                [nzData]="nodes"
+                                nzShowLine
+                                (nzClick)="nzEvent($event)"
+                            ></nz-tree>
+                        </div>
+                    </nz-dropdown-menu>                   
+                </nz-button-group>
+                <div class="bi-filters-tags"
+                    [class.bi-filters-tags-hover]="isHovered" 
+                    (mouseenter)="onMouseEnter()" 
+                    (mouseleave)="onMouseLeave()"
+                >
+                    <nz-tag nzMode="closeable">заголовок 1 <b>тип бла</b> значение</nz-tag>
+                    <nz-tag nzMode="closeable">заголовок 2 <b>тип еще бла</b> значение</nz-tag>
+                    <nz-tag nzMode="closeable">заголовок 3 <b>тип просто бла бла</b> значение</nz-tag>
+                    <nz-tag nzMode="closeable">заголовок 4 <b>тип 0</b> значение</nz-tag>
+                    <nz-tag nzMode="closeable">заголовок 5 <b>тип упсики</b> значение</nz-tag>
                 </div>
             </div>
             <!--div class="inner-content bi-fullscreen platform-only">

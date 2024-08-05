@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { NgStyle } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +23,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzListModule } from 'ng-zorro-antd/list';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 @Component({
   selector: 'app-constructor',
@@ -53,7 +54,8 @@ import { NzListModule } from 'ng-zorro-antd/list';
     NzCheckboxModule,
     NzModalModule,
     NzCollapseModule,
-    NzListModule
+    NzListModule,
+    NzCardModule
   ],
   templateUrl: './constructor.component.html',
   styleUrls: ['./constructor.component.less']
@@ -227,19 +229,36 @@ export class ConstructorComponent implements OnInit {
   isBlockNameChecked: boolean = true;
 
 
-// Модальное окно связей - начало
-isModalEditCodeLinkVisible = false;
-constructor() {}
-showModalEditCodeLink(): void {
-  this.isModalEditCodeLinkVisible = true;
-}
-handleModalEditCodeLinkOk(): void {
-  console.log('Button ok clicked!');
-  this.isModalEditCodeLinkVisible = false;
-}
-handleModalEditCodeLinkCancel(): void {
-  console.log('Button cancel clicked!');
-  this.isModalEditCodeLinkVisible = false;
-}
-// конец
+  // Модальное окно связей - начало
+  isModalEditCodeLinkVisible = false;
+  constructor() {}
+  showModalEditCodeLink(): void {
+    this.isModalEditCodeLinkVisible = true;
+  }
+  handleModalEditCodeLinkOk(): void {
+    console.log('Button ok clicked!');
+    this.isModalEditCodeLinkVisible = false;
+  }
+  handleModalEditCodeLinkCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isModalEditCodeLinkVisible = false;
+  }
+  // конец
+
+
+  isHovered: boolean = false;
+  timeoutId: any;
+
+  onMouseEnter() {
+    this.isHovered = true;
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+  }
+
+  onMouseLeave() {
+    this.timeoutId = setTimeout(() => {
+      this.isHovered = false;
+    }, 750);
+  }
 }
