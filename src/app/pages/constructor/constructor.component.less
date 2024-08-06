@@ -115,30 +115,46 @@
             display: flex;
             grid-gap: 12px;
             align-items: center;
+            .ant-tag {
+                margin: 0;
+            }
+            .bi-filters-tags {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                grid-gap: 8px;
+                &:not(.bi-filters-tags-hover) {
+                    overflow: hidden;
+                    align-self: center;
+                    height: 100%;
+                }
+                &.bi-filters-tags-hover {
+                    margin: -8px;
+                    padding: 8px;
+                    align-self: baseline;
+                    background-color: #fff;
+                    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+                }
+
+                .ant-tag {
+                    display: grid;
+                    grid-auto-flow: column;
+                    grid-gap: 8px;
+                    max-width: 256px;
+                    .bi-tag-title,
+                    .bi-tag-data {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    .bi-tag-type {
+                        font-weight: 600;
+                    }
+                }
+
+            }
         }
         .bi-fullscreen {
             padding: 10px;
-        }
-        .bi-filters-tags {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            row-gap: 8px;
-            // &:not(:hover)
-            &:not(.bi-filters-tags-hover) {
-                overflow: hidden;
-                align-self: center;
-                height: 100%;
-            }
-            // &:hover
-            &.bi-filters-tags-hover {
-                margin: -12px;
-                padding: 12px;
-                align-self: baseline;
-                background-color: #fff;
-                box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-                z-index: 1;
-            }
         }
     }
     .bi-constructor-editor {

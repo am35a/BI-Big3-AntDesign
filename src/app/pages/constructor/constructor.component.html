@@ -352,10 +352,17 @@
 
         <div class="bi-constructor-filters">
             <div class="inner-content bi-filters-container">
-                <span nz-icon nzType="filter" nzTheme="outline"></span>
+                <!-- <span nz-icon nzType="filter" nzTheme="outline"></span> -->
                 <nz-button-group>
-                    <button nz-button nz-dropdown [nzDropdownMenu]="filterDropMenu" nzSize="small" nzTrigger="click">
-                      <span nz-icon nzType="plus"></span>
+                    <button
+                        nz-button
+                        nz-dropdown
+                        [nzDropdownMenu]="filterDropMenu"
+                        nzSize="small"
+                        nzTrigger="hover"
+                        nzType="text"
+                    >
+                        <span nz-icon nzType="filter"></span>
                     </button>
                     <nz-dropdown-menu #filterDropMenu="nzDropdownMenu">
                         <div nz-menu style="padding: 4px;">
@@ -372,19 +379,53 @@
                                 (nzClick)="nzEvent($event)"
                             ></nz-tree>
                         </div>
-                    </nz-dropdown-menu>                   
+                    </nz-dropdown-menu>
                 </nz-button-group>
+                <nz-tag
+                    [nzColor]="'green'"
+                    [nzBordered]="false"
+                    title="Фильтров применено - 5"
+                >5</nz-tag>
                 <div class="bi-filters-tags"
                     [class.bi-filters-tags-hover]="isHovered" 
                     (mouseenter)="onMouseEnter()" 
                     (mouseleave)="onMouseLeave()"
                 >
-                    <nz-tag nzMode="closeable">заголовок 1 <b>тип бла</b> значение</nz-tag>
-                    <nz-tag nzMode="closeable">заголовок 2 <b>тип еще бла</b> значение</nz-tag>
-                    <nz-tag nzMode="closeable">заголовок 3 <b>тип просто бла бла</b> значение</nz-tag>
-                    <nz-tag nzMode="closeable">заголовок 4 <b>тип 0</b> значение</nz-tag>
-                    <nz-tag nzMode="closeable">заголовок 5 <b>тип упсики</b> значение</nz-tag>
+                    <nz-tag nzMode="closeable">
+                        <div class="bi-tag-title">заг-ок</div>
+                        <div class="bi-tag-type">тип</div>
+                        <div class="bi-tag-data">значение</div>
+                    </nz-tag>
+                    <nz-tag nzMode="closeable">
+                        <div class="bi-tag-title">заголовок</div>
+                        <div class="bi-tag-type">тип</div>
+                        <div class="bi-tag-data">значение</div>
+                    </nz-tag>
+                    <nz-tag nzMode="closeable">
+                        <div class="bi-tag-title">заголовок длинный</div>
+                        <div class="bi-tag-type">тип</div>
+                        <div class="bi-tag-data">значение</div>
+                    </nz-tag>
+                    <nz-tag nzMode="closeable">
+                        <div class="bi-tag-title">заголовок еще длиннее</div>
+                        <div class="bi-tag-type">тип</div>
+                        <div class="bi-tag-data">значение</div>
+                    </nz-tag>
+                    <nz-tag nzMode="closeable">
+                        <div class="bi-tag-title">заголовок 5</div>
+                        <div class="bi-tag-type">тип</div>
+                        <div class="bi-tag-data">значение</div>
+                    </nz-tag>
                 </div>
+                <button
+                    nz-button
+                    nzSize="small"
+                    nzType="text"
+                    title="Очистить фильтры"
+                >
+                    <span nz-icon nzType="close"></span>
+                </button>
+
             </div>
             <!--div class="inner-content bi-fullscreen platform-only">
                 <button
