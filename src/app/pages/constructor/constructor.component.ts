@@ -259,6 +259,6 @@ export class ConstructorComponent implements OnInit {
   onMouseLeave() {
     this.timeoutId = setTimeout(() => {
       this.isHovered = false;
-    }, 750);
+    }, 625);
   }
 }
