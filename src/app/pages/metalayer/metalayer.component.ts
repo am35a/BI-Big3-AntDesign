@@ -23,6 +23,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
 // import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 // import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 
 @Component({
@@ -59,6 +60,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     // NzCheckboxModule
     // NzPopconfirmModule,
     // NzMessageService
+    NzTagModule
   ],
   templateUrl: './metalayer.component.html',
   styleUrls: ['./metalayer.component.less'],

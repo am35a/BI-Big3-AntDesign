@@ -209,14 +209,29 @@
         <div class="bi-metalayer-editor">
 
             <!-- Связи - начало -->
+            <!-- (click)="showModalLink()" -->
             <button
-                (click)="showModalLink()"
+            nzTrigger="click"
                 nz-button nzType="default" [nzSize]="'small'" nzShape="circle"
+                nz-dropdown [nzDropdownMenu]="menu1"
             >
                 <span nz-typography nzType="secondary">
                     <span nz-icon nzType="link"></span>
                 </span>
             </button>
+            <nz-dropdown-menu #menu1="nzDropdownMenu">
+                <div nz-menu
+                    style="
+                        padding: 4px 8px;
+                        display: flex;
+                        grid-gap: 4px;
+                    "
+                >
+                    <nz-tag style="margin: 0; border: 0;">trip.id_comp</nz-tag>
+                    <nz-tag [nzColor]="'green'" style="margin: 0; border: 0;"><strong>1/N</strong></nz-tag>
+                    <nz-tag style="margin: 0; border: 0;">pass_in_trip.date</nz-tag>
+                </div>
+            </nz-dropdown-menu>
             <!-- <br><br><br>
             <button
                 nz-button nzType="default" [nzSize]="'small'" nzShape="circle"
