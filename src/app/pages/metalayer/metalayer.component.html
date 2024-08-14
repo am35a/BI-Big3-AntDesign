@@ -48,7 +48,7 @@
                 <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
             </div>
             <div class="bi-sources-select">
-                <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'">
+                <nz-select nzShowSearch nzPlaceHolder="Выберите источник" [nzSize]="'small'">
                     <nz-option nzLabel="Название источника данных 1" nzValue="1"></nz-option>
                     <nz-option nzLabel="Название источника данных 2" nzValue="2"></nz-option>
                     <nz-option nzLabel="Название источника данных 3" nzValue="3"></nz-option>
@@ -144,7 +144,7 @@
                     >
                     <nz-select
                         nzShowSearch
-                        nzPlaceHolder="Выбирите слой"
+                        nzPlaceHolder="Выберите слой"
                         nzSize="small"
                         style="width:100%;"
                     >
@@ -209,9 +209,8 @@
         <div class="bi-metalayer-editor">
 
             <!-- Связи - начало -->
-            <!-- (click)="showModalLink()" -->
             <button
-            nzTrigger="click"
+                (click)="showModalLink()"
                 nz-button nzType="default" [nzSize]="'small'" nzShape="circle"
                 nz-dropdown [nzDropdownMenu]="menu1"
             >
@@ -254,12 +253,12 @@
                 [(nzVisible)]="isModalLinkVisible"
                 nzCentered
                 nzWidth="720px"
-                nzTitle="Связи"
+                nzTitle="Редактирования показателя"
             >
                 <ng-container *nzModalContent>
 
                     <!-- Таблица - начало -->
-                    <nz-space nzDirection="vertical">
+                    <!--nz-space nzDirection="vertical">
                         <div
                             *nzSpaceItem
                             nz-flex
@@ -339,6 +338,52 @@
                     </nz-space>
                     <!-- Таблица - конец -->
 
+                    <form nz-form>
+                        <nz-form-item style="margin-bottom: 36px">
+                            <nz-form-label [nzSpan]="7" nzFor="semname">Название</nz-form-label>
+                            <nz-form-control [nzSpan]="15">
+                                <input nz-input name="semname" type="text" id="semname" placeholder="Название показателя"/>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-label [nzSpan]="7" nzFor="semlayer">Семантический слой</nz-form-label>
+                            <nz-form-control [nzSpan]="15">
+                                <nz-select name="semlayer" id="semlayer" nzShowSearch nzAllowClear nzPlaceHolder="Выберите семантический слой">
+                                    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                                    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                                    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-label [nzSpan]="7" nzFor="semdatatype">Тип данных</nz-form-label>
+                            <nz-form-control [nzSpan]="15">
+                                <nz-select name="semdatatype" id="semdatatype" nzShowSearch nzAllowClear nzPlaceHolder="Выберите тип данных">
+                                    <nz-option nzLabel="Такой" nzValue="jack"></nz-option>
+                                    <nz-option nzLabel="Сякой" nzValue="lucy"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-label [nzSpan]="7" nzFor="semшindextype">Тип показателя</nz-form-label>
+                            <nz-form-control [nzSpan]="15">
+                                <nz-select name="semшindextype" id="semшindextype" nzShowSearch nzAllowClear nzPlaceHolder="Выберите тип показателя">
+                                    <nz-option nzLabel="Измерение" nzValue="one"></nz-option>
+                                    <nz-option nzLabel="Мера" nzValue="two"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-divider
+                            style="font-size: 12px; font-weight: 500; color: #00000073;"
+                            nzText="Дополнительно"
+                            nzOrientation="left"></nz-divider>
+                        <nz-form-item>
+                            <nz-form-label [nzSpan]="7" nzFor="semexpression">Выражение</nz-form-label>
+                            <nz-form-control [nzSpan]="15">
+                                <textarea rows="2" nz-input name="semexpression" type="text" id="semexpression"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </form>
                 </ng-container>
             </nz-modal>
             <!-- Связи - конец -->
