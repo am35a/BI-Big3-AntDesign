@@ -12,7 +12,8 @@
                 <span nz-icon nzType="printer"></span>
             </button> -->
             <button *nzSpaceItem nz-button>
-                <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span>
+                <span nz-icon [nzType]="'compress'" nzTheme="outline"></span>
+                <!-- <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span> -->
             </button>
             <!-- <button *nzSpaceItem nz-button>
                 <span nz-icon nzType="info-circle"></span>
@@ -56,289 +57,290 @@
     <!-- [class.bi-expand-editor]="biExpandEditor" -->
     <!-- <span nz-icon [nzType]="biExpandEditor ? 'compress' : 'expand'" nzTheme="outline"></span> -->
 
-        <div class="inner-content bi-constructor-sources">
-            <div class="bi-sources-header">
-                <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
-                <button
-                    (click)="biEditorUIMap.setUIClasses('sources')"
-                    nz-button
-                    nzType="text"
-                    [nzSize]="'small'"
-                    title="Свернуть панель">
-                    <span nz-icon [nzType]="biEditorUIMap.sources.isExpand ? 'caret-down' : 'caret-up'"></span>
-                </button>
-            </div>
-            <div class="bi-sources-select">
-                <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'"> <!--[(ngModel)]="selectedSelectSource"-->
-                    <nz-option nzLabel="Название источника жанных 1" nzValue="1"></nz-option>
-                    <nz-option nzLabel="Название источника жанных 2" nzValue="2"></nz-option>
-                    <nz-option nzLabel="Название источника жанных 3" nzValue="3"></nz-option>
-                </nz-select>
-            </div>
-            <div class="bi-sources">
-                <div class="bi-sources-search">
-                    <!-- Этот поиск можно прикнутить к списку, рецепт на странице - https://ng.ant.design/components/tree-view/en -->
-                    <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
-                        <input type="text" nz-input placeholder="Поиск в источнике"/>
-                    </nz-input-group>
-                    <ng-template #suffixIconSearch nzSize="small">
-                        <span nz-icon nzType="search"></span>
-                    </ng-template>
+        <div class="bi-constructor-aside">
+            <div class="inner-content bi-constructor-sources">
+                <div class="bi-sources-header">
+                    <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
+                    <button
+                        (click)="biEditorUIMap.setUIClasses('sources')"
+                        nz-button
+                        nzType="text"
+                        [nzSize]="'small'"
+                        title="Свернуть панель">
+                        <span nz-icon [nzType]="biEditorUIMap.sources.isExpand ? 'caret-down' : 'caret-up'"></span>
+                    </button>
                 </div>
-                <div class="bi-sources-list">
-                    <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+                <div class="bi-sources-select">
+                    <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'"> <!--[(ngModel)]="selectedSelectSource"-->
+                        <nz-option nzLabel="Название источника жанных 1" nzValue="1"></nz-option>
+                        <nz-option nzLabel="Название источника жанных 2" nzValue="2"></nz-option>
+                        <nz-option nzLabel="Название источника жанных 3" nzValue="3"></nz-option>
+                    </nz-select>
                 </div>
-            </div>
-        </div>
-        <div class="inner-content bi-constructor-settings">
-            <div class="bi-settings-header">
-                <strong><span nz-icon nzType="setting" nzTheme="outline"></span> Настройки</strong>
-                <button
-                    (click)="biEditorUIMap.setUIClasses('settings')"
-                    nz-button
-                    nzType="text"
-                    [nzSize]="'small'"
-                    title="Свернуть панель">
-                    <span nz-icon [nzType]="biEditorUIMap.settings.isExpand ? 'caret-down' : 'caret-up'"></span>
-                </button>
-
-            </div>
-            <div class="bi-settings-entities">
-                <!-- Сущности -->
-                <!--button nz-select nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuEntities" [nzSize]="'small'">
-                    <span nz-text>Название сущности</span>
-                    <span nz-icon nzType="down"></span>
-                </button>
-                <nz-dropdown-menu #menuEntities="nzDropdownMenu">
-                    <div class="ant-dropdown-menu bi-entities">
-                        <div class="bi-entities-search">
-                            <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
-                                <input type="text" nz-input placeholder="Поиск в источнике"/>
-                            </nz-input-group>
-                            <ng-template #suffixIconSearch nzSize="small">
-                                <span nz-icon nzType="search"></span>
-                            </ng-template>
-                        </div>
-                        <div class="bi-entities-list">
-                            <nz-tree [nzData]="nodesEntities" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
-                        </div>
+                <div class="bi-sources">
+                    <div class="bi-sources-search">
+                        <!-- Этот поиск можно прикнутить к списку, рецепт на странице - https://ng.ant.design/components/tree-view/en -->
+                        <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
+                            <input type="text" nz-input placeholder="Поиск в источнике"/>
+                        </nz-input-group>
+                        <ng-template #suffixIconSearch nzSize="small">
+                            <span nz-icon nzType="search"></span>
+                        </ng-template>
                     </div>
-                </nz-dropdown-menu-->
-                <nz-tree-select
-                    [nzExpandedKeys]="expandEntities"
-                    [nzNodes]="nodesEntities"
-                    nzShowSearch
-                    nzPlaceHolder="Please select"
-                    [nzSize]="'small'"
-                ></nz-tree-select>
-
-            </div>
-            <div class="bi-settings-list">
-                <!-- Настройки страницы -->
-                <div nz-typography class="bi-settings-page" style="display: none;">
-                    <div class="bi-page">
-                        <strong><span nz-icon nzType="edit" nzTheme="outline"></span> Название страницы</strong>
-                        <input nz-input placeholder="Название страницы" nzSize="small" [(ngModel)]="valuePageName"/>
-
-                        <strong><span nz-icon nzType="file" nzTheme="outline"></span> Размер страницы</strong>
-                        <nz-select ngModel="0" [nzSize]="'small'">
-                            <nz-option nzValue="0" nzLabel="Авторазмер"></nz-option>
-                            <nz-option nzValue="1" nzLabel="Пользовательский"></nz-option>
-                            <nz-option-group nzLabel="Рабочий стол и ТВ">
-                                <nz-option nzValue="2" nzLabel="Ultra HD - 3840x2160"></nz-option>
-                                <nz-option nzValue="3" nzLabel="Full HD - 1920x1080"></nz-option>
-                            </nz-option-group>
-                            <nz-option-group nzLabel="Телефон">
-                                <nz-option nzValue="5" nzLabel="9:16"></nz-option>
-                                <nz-option nzValue="6" nzLabel="9:21"></nz-option>
-                            </nz-option-group>
-                            <nz-option-group nzLabel="Планшет">
-                                <nz-option nzValue="7" nzLabel="16:10"></nz-option>
-                            </nz-option-group>
-                            <nz-option-group nzLabel="Бумага">
-                                <nz-option nzValue="8" nzLabel="A4"></nz-option>
-                            </nz-option-group>
-                        </nz-select>
-                        
-                        <div class="bi-page-size">
-                            <div>
-                                <div><small>Ширина:</small></div>
-                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="8000" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
-                            </div>
-                            <div>
-                                <div><small>Высота:</small></div>
-                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="8000" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
-                            </div>
-                        </div>
+                    <div class="bi-sources-list">
+                        <nz-tree [nzData]="nodes" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
                     </div>
-                    <div class="bi-grid">
-                        <strong><span nz-icon nzType="appstore" nzTheme="outline"></span> Макет сетки</strong>
-                        <div class="bi-grid-size">
-                            <div>
-                                <div><small>Колонки:</small></div>
-                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="20" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
-                            </div>
-                            <div>
-                                <div><small>Ряды:</small></div>
-                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="20" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
-                            </div>
-                            <div>
-                                <div><small>Отступ:</small></div>
-                                <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="10" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
-                            </div>
-                        </div>
-                    </div>                
                 </div>
-                <!-- Настройки блока -->
-                <div nz-typography class="bi-settings-block">
-                    <!-- <nz-collapse nzGhost>
-                        <nz-collapse-panel
-                            #panel
-                            [nzHeader]="'Настройки блока'"
-                            [nzActive]="true"
-                            [nzExtra]="extraTpl"
-                        >
-                            <div>Expand 1</div>
-                        </nz-collapse-panel>
-                    </nz-collapse>
-                    <ng-template #extraTpl>
-                        <! -- You can use stopPropagation if you don't want the panel to toggle -- >
-                        <span nz-icon nzType="setting" (click)="$event.stopPropagation()"></span>
-                    </ng-template>
-
-                    <br>
-
-                    <nz-collapse nzGhost [nzExpandIconPosition]="'right'">
-                          <nz-collapse-panel
-                            #panel
-                            [nzHeader]="'panel.name'"
-                          >
-                            <div>panel.name content</div>
-                            <ng-template>
-                              <span nz-icon class="ant-collapse-arrow" [nzRotate]="panel.nzActive ? 90 : -90"></span>
-                            </ng-template>
-                          </nz-collapse-panel>
-                      </nz-collapse>
-
-                    <br> -->
-                    
-                    <div class="bi-block" nz-typography>
-                        <strong><span nz-icon nzType="block" nzTheme="outline"></span> Настройка блока</strong>
-                        <div>
-                            <nz-form-control >
-                                <nz-form-label nzFor="block-name" nzSize="small"><strong>Название</strong></nz-form-label>
-                                <input id="block-name" nz-input placeholder="Название блока" nzSize="small" [(ngModel)]="valueBlockName" />
-                            </nz-form-control>
-                            <nz-form-control>
-                                <label nz-checkbox [(ngModel)]="isBlockNameChecked">Показывать название</label>
-                            </nz-form-control>
+            </div>
+            <div class="inner-content bi-constructor-settings">
+                <div class="bi-settings-header">
+                    <strong><span nz-icon nzType="setting" nzTheme="outline"></span> Настройки</strong>
+                    <button
+                        (click)="biEditorUIMap.setUIClasses('settings')"
+                        nz-button
+                        nzType="text"
+                        [nzSize]="'small'"
+                        title="Свернуть панель">
+                        <span nz-icon [nzType]="biEditorUIMap.settings.isExpand ? 'caret-down' : 'caret-up'"></span>
+                    </button>    
+                </div>
+                <div class="bi-settings-entities">
+                    <!-- Сущности -->
+                    <!--button nz-select nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="menuEntities" [nzSize]="'small'">
+                        <span nz-text>Название сущности</span>
+                        <span nz-icon nzType="down"></span>
+                    </button>
+                    <nz-dropdown-menu #menuEntities="nzDropdownMenu">
+                        <div class="ant-dropdown-menu bi-entities">
+                            <div class="bi-entities-search">
+                                <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small">
+                                    <input type="text" nz-input placeholder="Поиск в источнике"/>
+                                </nz-input-group>
+                                <ng-template #suffixIconSearch nzSize="small">
+                                    <span nz-icon nzType="search"></span>
+                                </ng-template>
+                            </div>
+                            <div class="bi-entities-list">
+                                <nz-tree [nzData]="nodesEntities" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+                            </div>
                         </div>
-                        <div>
-                            <nz-form-control >
-                                <nz-form-label nzFor="block-name" nzSize="small"><strong>Тип</strong></nz-form-label>
-                            </nz-form-control>
-                            <nz-select
-                                nzPlaceHolder="Выбирите тип"
-                                [nzSize]="'small'"
-                                [ngStyle]="
-                                    {'width': '100%',
-                                    'margin-bottom': '8px'}
-                                "
-                            >
-                                <nz-option nzLabel="Название типа 1" nzValue="1"></nz-option>
-                                <nz-option nzLabel="Название типа 2" nzValue="2"></nz-option>
-                                <nz-option nzLabel="Название типа 3" nzValue="3"></nz-option>
+                    </nz-dropdown-menu-->
+                    <nz-tree-select
+                        [nzExpandedKeys]="expandEntities"
+                        [nzNodes]="nodesEntities"
+                        nzShowSearch
+                        nzPlaceHolder="Please select"
+                        [nzSize]="'small'"
+                    ></nz-tree-select>
+    
+                </div>
+                <div class="bi-settings-list">
+                    <!-- Настройки страницы -->
+                    <div nz-typography class="bi-settings-page" style="display: none;">
+                        <div class="bi-page">
+                            <strong><span nz-icon nzType="edit" nzTheme="outline"></span> Название страницы</strong>
+                            <input nz-input placeholder="Название страницы" nzSize="small" [(ngModel)]="valuePageName"/>
+    
+                            <strong><span nz-icon nzType="file" nzTheme="outline"></span> Размер страницы</strong>
+                            <nz-select ngModel="0" [nzSize]="'small'">
+                                <nz-option nzValue="0" nzLabel="Авторазмер"></nz-option>
+                                <nz-option nzValue="1" nzLabel="Пользовательский"></nz-option>
+                                <nz-option-group nzLabel="Рабочий стол и ТВ">
+                                    <nz-option nzValue="2" nzLabel="Ultra HD - 3840x2160"></nz-option>
+                                    <nz-option nzValue="3" nzLabel="Full HD - 1920x1080"></nz-option>
+                                </nz-option-group>
+                                <nz-option-group nzLabel="Телефон">
+                                    <nz-option nzValue="5" nzLabel="9:16"></nz-option>
+                                    <nz-option nzValue="6" nzLabel="9:21"></nz-option>
+                                </nz-option-group>
+                                <nz-option-group nzLabel="Планшет">
+                                    <nz-option nzValue="7" nzLabel="16:10"></nz-option>
+                                </nz-option-group>
+                                <nz-option-group nzLabel="Бумага">
+                                    <nz-option nzValue="8" nzLabel="A4"></nz-option>
+                                </nz-option-group>
                             </nz-select>
-                            <nz-list nzBordered nzSize="small">
-                                <nz-list-header>Столбцы</nz-list-header>
-                                    <div class="ant-list-items bi-list-small-5-row">
-                                        <nz-tree [nzData]="nodes" [ngStyle]="{'min-height': '168px'}" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
-                                        <!--
-                                        <nz-list-item>
-                                            <div nz-list-item-extra>Название источника</div>
-                                            <div nz-list-item-actions>
-                                                <button nz-button nzType="text"
-                                                    [nzSize]="'small'"
-                                                    type="button"
-                                                    title="Удалить столбец"
-                                                ><span nz-icon nzType="delete"></span></button>
-                                            </div>
-                                        </nz-list-item>
-                                        <nz-list-item>
-                                            <div nz-list-item-extra>Название источника</div>
-                                            <div nz-list-item-actions>
-                                                <button nz-button nzType="text"
-                                                    [nzSize]="'small'"
-                                                    type="button"
-                                                    title="Удалить столбец"
-                                                ><span nz-icon nzType="delete"></span></button>
-                                            </div>
-                                        </nz-list-item>
-                                        <nz-list-item>
-                                            <div nz-list-item-extra>Название источника</div>
-                                            <div nz-list-item-actions>
-                                                <button nz-button nzType="text"
-                                                    [nzSize]="'small'"
-                                                    type="button"
-                                                    title="Удалить столбец"
-                                                ><span nz-icon nzType="delete"></span></button>
-                                            </div>
-                                        </nz-list-item>
-                                        <nz-list-item>
-                                            <div nz-list-item-extra>Название источника</div>
-                                            <div nz-list-item-actions>
-                                                <button nz-button nzType="text"
-                                                    [nzSize]="'small'"
-                                                    type="button"
-                                                    title="Удалить столбец"
-                                                ><span nz-icon nzType="delete"></span></button>
-                                            </div>
-                                        </nz-list-item>
-                                        <nz-list-item>
-                                            <div nz-list-item-extra>Название источника</div>
-                                            <div nz-list-item-actions>
-                                                <button nz-button nzType="text"
-                                                    [nzSize]="'small'"
-                                                    type="button"
-                                                    title="Удалить столбец"
-                                                ><span nz-icon nzType="delete"></span></button>
-                                            </div>
-                                        </nz-list-item>
-                                        <nz-list-item>
-                                            <div nz-list-item-extra>Название источника</div>
-                                            <div nz-list-item-actions>
-                                                <button nz-button nzType="text"
-                                                    [nzSize]="'small'"
-                                                    type="button"
-                                                    title="Удалить столбец"
-                                                ><span nz-icon nzType="delete"></span></button>
-                                            </div>
-                                        </nz-list-item>
-                                    -->
-                                    </div>
-                                <!--nz-list-empty/> <!-- если пусто -->
-                                <nz-list-footer>
-                                    <button
-                                        (click)="showModalEditCodeLink()"
-                                        nz-button nzType="text" [nzSize]="'small'" [ngStyle]="{width: '100%'}"
-                                    >
-                                        <span nz-icon nzType="edit"></span> Редактор графика
-                                    </button>
-                                </nz-list-footer>
-                            </nz-list>
+                            
+                            <div class="bi-page-size">
+                                <div>
+                                    <div><small>Ширина:</small></div>
+                                    <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="8000" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                                </div>
+                                <div>
+                                    <div><small>Высота:</small></div>
+                                    <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="8000" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                                </div>
+                            </div>
                         </div>
+                        <div class="bi-grid">
+                            <strong><span nz-icon nzType="appstore" nzTheme="outline"></span> Макет сетки</strong>
+                            <div class="bi-grid-size">
+                                <div>
+                                    <div><small>Колонки:</small></div>
+                                    <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="20" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                                </div>
+                                <div>
+                                    <div><small>Ряды:</small></div>
+                                    <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="20" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                                </div>
+                                <div>
+                                    <div><small>Отступ:</small></div>
+                                    <nz-input-number (ngModel)="1" [nzMin]="1" [nzMax]="10" [nzStep]="1" [nzSize]="'small'"></nz-input-number>
+                                </div>
+                            </div>
+                        </div>                
                     </div>
-                    <div class="bi-type" style="display: none;">
-                        <strong><span nz-icon nzType="block" nzTheme="outline"></span> Настройка блока</strong>
-                        <!-- <strong>Тип содержимого</strong>
-                        <div>График или таблица</div>
-                        <div>редактор если таблица</div> -->
-                        <button
-                            (click)="showModalEditCodeLink()"
-                            nz-button nzType="default" [nzSize]="'small'" [ngStyle]="{width: '100%'}"
-                        >
-                            <span nz-icon nzType="edit"></span> Редактор графика
-                        </button>
+                    <!-- Настройки блока -->
+                    <div nz-typography class="bi-settings-block">
+                        <!-- <nz-collapse nzGhost>
+                            <nz-collapse-panel
+                                #panel
+                                [nzHeader]="'Настройки блока'"
+                                [nzActive]="true"
+                                [nzExtra]="extraTpl"
+                            >
+                                <div>Expand 1</div>
+                            </nz-collapse-panel>
+                        </nz-collapse>
+                        <ng-template #extraTpl>
+                            <! -- You can use stopPropagation if you don't want the panel to toggle -- >
+                            <span nz-icon nzType="setting" (click)="$event.stopPropagation()"></span>
+                        </ng-template>
+    
+                        <br>
+    
+                        <nz-collapse nzGhost [nzExpandIconPosition]="'right'">
+                              <nz-collapse-panel
+                                #panel
+                                [nzHeader]="'panel.name'"
+                              >
+                                <div>panel.name content</div>
+                                <ng-template>
+                                  <span nz-icon class="ant-collapse-arrow" [nzRotate]="panel.nzActive ? 90 : -90"></span>
+                                </ng-template>
+                              </nz-collapse-panel>
+                          </nz-collapse>
+    
+                        <br> -->
+                        
+                        <div class="bi-block" nz-typography>
+                            <strong><span nz-icon nzType="block" nzTheme="outline"></span> Настройка блока</strong>
+                            <div>
+                                <nz-form-control >
+                                    <nz-form-label nzFor="block-name" nzSize="small"><strong>Название</strong></nz-form-label>
+                                    <input id="block-name" nz-input placeholder="Название блока" nzSize="small" [(ngModel)]="valueBlockName" />
+                                </nz-form-control>
+                                <nz-form-control>
+                                    <label nz-checkbox [(ngModel)]="isBlockNameChecked">Показывать название</label>
+                                </nz-form-control>
+                            </div>
+                            <div>
+                                <nz-form-control >
+                                    <nz-form-label nzFor="block-name" nzSize="small"><strong>Тип</strong></nz-form-label>
+                                </nz-form-control>
+                                <nz-select
+                                    nzPlaceHolder="Выбирите тип"
+                                    [nzSize]="'small'"
+                                    [ngStyle]="
+                                        {'width': '100%',
+                                        'margin-bottom': '8px'}
+                                    "
+                                >
+                                    <nz-option nzLabel="Название типа 1" nzValue="1"></nz-option>
+                                    <nz-option nzLabel="Название типа 2" nzValue="2"></nz-option>
+                                    <nz-option nzLabel="Название типа 3" nzValue="3"></nz-option>
+                                </nz-select>
+                                <nz-list nzBordered nzSize="small">
+                                    <nz-list-header>Столбцы</nz-list-header>
+                                        <div class="ant-list-items bi-list-small-5-row">
+                                            <nz-tree [nzData]="nodes" [ngStyle]="{'min-height': '168px'}" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
+                                            <!--
+                                            <nz-list-item>
+                                                <div nz-list-item-extra>Название источника</div>
+                                                <div nz-list-item-actions>
+                                                    <button nz-button nzType="text"
+                                                        [nzSize]="'small'"
+                                                        type="button"
+                                                        title="Удалить столбец"
+                                                    ><span nz-icon nzType="delete"></span></button>
+                                                </div>
+                                            </nz-list-item>
+                                            <nz-list-item>
+                                                <div nz-list-item-extra>Название источника</div>
+                                                <div nz-list-item-actions>
+                                                    <button nz-button nzType="text"
+                                                        [nzSize]="'small'"
+                                                        type="button"
+                                                        title="Удалить столбец"
+                                                    ><span nz-icon nzType="delete"></span></button>
+                                                </div>
+                                            </nz-list-item>
+                                            <nz-list-item>
+                                                <div nz-list-item-extra>Название источника</div>
+                                                <div nz-list-item-actions>
+                                                    <button nz-button nzType="text"
+                                                        [nzSize]="'small'"
+                                                        type="button"
+                                                        title="Удалить столбец"
+                                                    ><span nz-icon nzType="delete"></span></button>
+                                                </div>
+                                            </nz-list-item>
+                                            <nz-list-item>
+                                                <div nz-list-item-extra>Название источника</div>
+                                                <div nz-list-item-actions>
+                                                    <button nz-button nzType="text"
+                                                        [nzSize]="'small'"
+                                                        type="button"
+                                                        title="Удалить столбец"
+                                                    ><span nz-icon nzType="delete"></span></button>
+                                                </div>
+                                            </nz-list-item>
+                                            <nz-list-item>
+                                                <div nz-list-item-extra>Название источника</div>
+                                                <div nz-list-item-actions>
+                                                    <button nz-button nzType="text"
+                                                        [nzSize]="'small'"
+                                                        type="button"
+                                                        title="Удалить столбец"
+                                                    ><span nz-icon nzType="delete"></span></button>
+                                                </div>
+                                            </nz-list-item>
+                                            <nz-list-item>
+                                                <div nz-list-item-extra>Название источника</div>
+                                                <div nz-list-item-actions>
+                                                    <button nz-button nzType="text"
+                                                        [nzSize]="'small'"
+                                                        type="button"
+                                                        title="Удалить столбец"
+                                                    ><span nz-icon nzType="delete"></span></button>
+                                                </div>
+                                            </nz-list-item>
+                                        -->
+                                        </div>
+                                    <!--nz-list-empty/> <!-- если пусто -->
+                                    <nz-list-footer>
+                                        <button
+                                            (click)="showModalEditCodeLink()"
+                                            nz-button nzType="text" [nzSize]="'small'" [ngStyle]="{width: '100%'}"
+                                        >
+                                            <span nz-icon nzType="edit"></span> Редактор графика
+                                        </button>
+                                    </nz-list-footer>
+                                </nz-list>
+                            </div>
+                        </div>
+                        <div class="bi-type" style="display: none;">
+                            <strong><span nz-icon nzType="block" nzTheme="outline"></span> Настройка блока</strong>
+                            <!-- <strong>Тип содержимого</strong>
+                            <div>График или таблица</div>
+                            <div>редактор если таблица</div> -->
+                            <button
+                                (click)="showModalEditCodeLink()"
+                                nz-button nzType="default" [nzSize]="'small'" [ngStyle]="{width: '100%'}"
+                            >
+                                <span nz-icon nzType="edit"></span> Редактор графика
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

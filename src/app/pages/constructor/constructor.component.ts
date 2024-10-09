@@ -149,48 +149,32 @@ export class ConstructorComponent implements OnInit {
   ];
  
 
-  biExpandEditor: boolean = false;
+  // biExpandEditor: boolean = false;
   biEditorUIMap = {
     sources: {
-      isExpand: false,
-      xPosition: 1
+      isExpand: false
     },
     settings: {
-      isExpand: false,
-      xPosition: 2
+      isExpand: false
     },
-    editor: {
-      isExpand: false,
-      xPosition: 3
-    },
+    // editor: {
+    //   isExpand: false
+    // },
     classString: '',
     setUIClasses(block: string): void {
-      this.classString = '';
       switch (block) {
         case 'sources':
-          if (this.editor.isExpand)
-            this.editor.isExpand = false
           this.sources.isExpand = !this.sources.isExpand;
           break;
         case 'settings':
-          if (this.editor.isExpand)
-            this.editor.isExpand = false
           this.settings.isExpand = !this.settings.isExpand;
           break;
         default:
-          this.editor.isExpand = !this.editor.isExpand;
-          if (!this.editor.isExpand) {
             this.sources.isExpand = false;
             this.settings.isExpand = false;
-          }
           break;
       }
-      if(this.sources.isExpand && !this.settings.isExpand)
-        this.classString = 'bi-expand-sources';
-      if(!this.sources.isExpand && this.settings.isExpand)
-        this.classString = 'bi-expand-settings';
-      if(this.sources.isExpand && this.settings.isExpand || this.editor.isExpand)
-        this.classString = 'bi-expand-editor';
+      this.classString = `${this.sources.isExpand ? 'bi-expand-sources' : ''} ${this.settings.isExpand ? 'bi-expand-settings' : ''}`;
     }
   }
 
