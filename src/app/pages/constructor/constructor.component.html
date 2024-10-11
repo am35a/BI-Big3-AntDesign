@@ -11,10 +11,18 @@
             <button *nzSpaceItem nz-button>
                 <span nz-icon nzType="printer"></span>
             </button> -->
-            <button *nzSpaceItem nz-button>
-                <span nz-icon [nzType]="'compress'" nzTheme="outline"></span>
-                <!-- <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span> -->
+            <button
+                (click)="biEditorAsideUIView === 'row' ? biEditorAsideUIView = 'col' : biEditorAsideUIView = 'row'"
+                *nzSpaceItem
+                nz-button
+            >    
+                <span nz-icon [nzType]="biEditorAsideUIView == 'col' ? 'column-height' : 'column-width'" nzTheme="outline"></span>
+                Вид
             </button>
+            <!-- <button *nzSpaceItem nz-button>
+                <span nz-icon [nzType]="'compress'" nzTheme="outline"></span>
+                <-- <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span> -- >
+            </button> -->
             <!-- <button *nzSpaceItem nz-button>
                 <span nz-icon nzType="info-circle"></span>
             </button> -->
@@ -50,9 +58,10 @@
     </nz-page-header-extra>
 </nz-page-header>
 <nz-content>
+    <!-- [class]="biEditorUIMap.classString" -->
     <div
         class="bi-constructor"
-        [class]="biEditorUIMap.classString"
+        [class]="biEditorAsideUIView === 'row' ? biEditorUIMap.classString : ''"
     >
     <!-- [class.bi-expand-editor]="biExpandEditor" -->
     <!-- <span nz-icon [nzType]="biExpandEditor ? 'compress' : 'expand'" nzTheme="outline"></span> -->
@@ -61,14 +70,21 @@
             <div class="inner-content bi-constructor-sources">
                 <div class="bi-sources-header">
                     <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
-                    <button
-                        (click)="biEditorUIMap.setUIClasses('sources')"
-                        nz-button
-                        nzType="text"
-                        [nzSize]="'small'"
-                        title="Свернуть панель">
-                        <span nz-icon [nzType]="biEditorUIMap.sources.isExpand ? 'caret-down' : 'caret-up'"></span>
-                    </button>
+                    @if (biEditorAsideUIView === 'row') {
+                        <button
+                            (click)="biEditorUIMap.setUIClasses('sources')"
+                            nz-button
+                            nzType="text"
+                            [nzSize]="'small'">
+                            <span
+                                nz-icon
+                                [nzRotate]="-45"
+                                [nzType]="
+                                    biEditorUIMap.sources.isExpand ? 'shrink' : 'arrows-alt'
+                                "
+                            ></span>
+                        </button>
+                    }
                 </div>
                 <div class="bi-sources-select">
                     <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'"> <!--[(ngModel)]="selectedSelectSource"-->
@@ -95,14 +111,22 @@
             <div class="inner-content bi-constructor-settings">
                 <div class="bi-settings-header">
                     <strong><span nz-icon nzType="setting" nzTheme="outline"></span> Настройки</strong>
-                    <button
-                        (click)="biEditorUIMap.setUIClasses('settings')"
-                        nz-button
-                        nzType="text"
-                        [nzSize]="'small'"
-                        title="Свернуть панель">
-                        <span nz-icon [nzType]="biEditorUIMap.settings.isExpand ? 'caret-down' : 'caret-up'"></span>
-                    </button>    
+                    @if (biEditorAsideUIView === 'row') {
+                        <button
+                            (click)="biEditorUIMap.setUIClasses('settings')"
+                            nz-button
+                            nzType="text"
+                            [nzSize]="'small'">
+                            <span
+                                nz-icon
+                                [nzRotate]="-45"
+                                [nzType]="
+                                    biEditorUIMap.settings.isExpand ? 'shrink' : 'arrows-alt'
+                                "
+                            ></span>
+                            
+                        </button>
+                    }
                 </div>
                 <div class="bi-settings-entities">
                     <!-- Сущности -->
