@@ -11,10 +11,20 @@
             <button *nzSpaceItem nz-button>
                 <span nz-icon nzType="printer"></span>
             </button> -->
-            <button *nzSpaceItem nz-button>
-                <span nz-icon [nzType]="'compress'" nzTheme="outline"></span>
-                <!-- <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span> -->
+
+            <button
+                (click)="biEditorAsideUIView === 'row' ? biEditorAsideUIView = 'col' : biEditorAsideUIView = 'row'"
+                *nzSpaceItem
+                nz-button
+            >    
+                <span nz-icon [nzType]="biEditorAsideUIView == 'col' ? 'column-height' : 'column-width'" nzTheme="outline"></span>
+                Вид
             </button>
+
+            <!-- <button *nzSpaceItem nz-button>
+                <span nz-icon [nzType]="'compress'" nzTheme="outline"></span>
+                <-- <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span> -- >
+            </button> -->
             <!-- <button *nzSpaceItem nz-button>
                 <span nz-icon nzType="info-circle"></span>
             </button> -->
@@ -50,25 +60,33 @@
     </nz-page-header-extra>
 </nz-page-header>
 <nz-content>
+    <!-- [class]="biEditorAsideUIView === 'row' ? biEditorUIMap.classString : ''" -->
     <div
         class="bi-constructor"
-        [class]="biEditorUIMap.classString"
+        
     >
-    <!-- [class.bi-expand-editor]="biExpandEditor" -->
-    <!-- <span nz-icon [nzType]="biExpandEditor ? 'compress' : 'expand'" nzTheme="outline"></span> -->
-
-        <div class="bi-constructor-aside">
-            <div class="inner-content bi-constructor-sources">
+        <div
+            class="bi-constructor-aside"
+            [class]="biEditorAsideUIView === 'row' ? 'bi-aside-short' : ''"
+        >
+            <div class="inner-content bi-aside-first">
                 <div class="bi-sources-header">
                     <strong><span nz-icon nzType="database" nzTheme="outline"></span> Источники</strong>
-                    <button
-                        (click)="biEditorUIMap.setUIClasses('sources')"
-                        nz-button
-                        nzType="text"
-                        [nzSize]="'small'"
-                        title="Свернуть панель">
-                        <span nz-icon [nzType]="biEditorUIMap.sources.isExpand ? 'caret-down' : 'caret-up'"></span>
-                    </button>
+                    <!-- @if (biEditorAsideUIView === 'row') {
+                        <button
+                            (click)="biEditorUIMap.setUIClasses('sources')"
+                            nz-button
+                            nzType="text"
+                            [nzSize]="'small'">
+                            <span
+                                nz-icon
+                                [nzRotate]="-45"
+                                [nzType]="
+                                    biEditorUIMap.sources.isExpand ? 'shrink' : 'arrows-alt'
+                                "
+                            ></span>
+                        </button>
+                    } -->
                 </div>
                 <div class="bi-sources-select">
                     <nz-select nzShowSearch nzPlaceHolder="Выбирите источник" [nzSize]="'small'"> <!--[(ngModel)]="selectedSelectSource"-->
@@ -92,17 +110,25 @@
                     </div>
                 </div>
             </div>
-            <div class="inner-content bi-constructor-settings">
+            <div class="bi-aside-resizer"></div>
+            <div class="inner-content bi-aside-second">
                 <div class="bi-settings-header">
                     <strong><span nz-icon nzType="setting" nzTheme="outline"></span> Настройки</strong>
-                    <button
-                        (click)="biEditorUIMap.setUIClasses('settings')"
-                        nz-button
-                        nzType="text"
-                        [nzSize]="'small'"
-                        title="Свернуть панель">
-                        <span nz-icon [nzType]="biEditorUIMap.settings.isExpand ? 'caret-down' : 'caret-up'"></span>
-                    </button>    
+                    <!-- @if (biEditorAsideUIView === 'row') {
+                        <button
+                            (click)="biEditorUIMap.setUIClasses('settings')"
+                            nz-button
+                            nzType="text"
+                            [nzSize]="'small'">
+                            <span
+                                nz-icon
+                                [nzRotate]="-45"
+                                [nzType]="
+                                    biEditorUIMap.settings.isExpand ? 'shrink' : 'arrows-alt'
+                                "
+                            ></span>
+                        </button>
+                    } -->
                 </div>
                 <div class="bi-settings-entities">
                     <!-- Сущности -->
@@ -344,101 +370,104 @@
                     </div>
                 </div>
             </div>
+            <div class="bi-aside-resizer"></div>
         </div>
+        <!-- <div class="bi-constructor-resizer"></div> -->
 <!-- 
     <div class="bi-container" --bi-container-zoom: 1, --bi-cursor: var(url("data:image/svg+xml, ..."))>
         <div class="bi-canvas">
             <div class="bi-shapes" transform: scale(1) translate(0px, 0px);>
                 <div class="bi-shape" >
  -->
-
-        <div class="bi-constructor-filters">
-            <div class="inner-content bi-filters-container">
-                <!-- <span nz-icon nzType="filter" nzTheme="outline"></span> -->
-                <nz-button-group>
+        
+        <div class="bi-constructor-editor">
+            <div class="bi-constructor-filters">
+                <div class="inner-content bi-filters-container">
+                    <!-- <span nz-icon nzType="filter" nzTheme="outline"></span> -->
+                    <nz-button-group>
+                        <button
+                            nz-button
+                            nz-dropdown
+                            [nzDropdownMenu]="filterDropMenu"
+                            nzSize="small"
+                            nzTrigger="hover"
+                            nzType="text"
+                        >
+                            <span nz-icon nzType="filter"></span>
+                        </button>
+                        <nz-dropdown-menu #filterDropMenu="nzDropdownMenu">
+                            <div nz-menu style="padding: 4px;">
+                                <nz-input-group [nzSuffix]="suffixIcon">
+                                    <input type="text" nz-input placeholder="Search" [(ngModel)]="nodes" />
+                                </nz-input-group>
+                                <ng-template #suffixIcon>
+                                    <span nz-icon nzType="search"></span>
+                                </ng-template>
+                                <nz-tree
+                                    style="height: 256px; padding: 4px; overflow-y: auto;"
+                                    [nzData]="nodes"
+                                    nzShowLine
+                                    (nzClick)="nzEvent($event)"
+                                ></nz-tree>
+                            </div>
+                        </nz-dropdown-menu>
+                    </nz-button-group>
+                    <nz-tag
+                        [nzColor]="'green'"
+                        [nzBordered]="false"
+                        title="Фильтров применено - 5"
+                    >5</nz-tag>
+                    <div class="bi-filters-tags"
+                        [class.bi-filters-tags-hover]="isHovered" 
+                        (mouseenter)="onMouseEnter()" 
+                        (mouseleave)="onMouseLeave()"
+                    >
+                        <nz-tag nzMode="closeable">
+                            <div class="bi-tag-title">заг-ок</div>
+                            <div class="bi-tag-type">тип</div>
+                            <div class="bi-tag-data">значение</div>
+                        </nz-tag>
+                        <nz-tag nzMode="closeable">
+                            <div class="bi-tag-title">заголовок</div>
+                            <div class="bi-tag-type">тип</div>
+                            <div class="bi-tag-data">значение</div>
+                        </nz-tag>
+                        <nz-tag nzMode="closeable">
+                            <div class="bi-tag-title">заголовок длинный</div>
+                            <div class="bi-tag-type">тип</div>
+                            <div class="bi-tag-data">значение</div>
+                        </nz-tag>
+                        <nz-tag nzMode="closeable">
+                            <div class="bi-tag-title">заголовок еще длиннее</div>
+                            <div class="bi-tag-type">тип</div>
+                            <div class="bi-tag-data">значение</div>
+                        </nz-tag>
+                        <nz-tag nzMode="closeable">
+                            <div class="bi-tag-title">заголовок 5</div>
+                            <div class="bi-tag-type">тип</div>
+                            <div class="bi-tag-data">значение</div>
+                        </nz-tag>
+                    </div>
                     <button
                         nz-button
-                        nz-dropdown
-                        [nzDropdownMenu]="filterDropMenu"
                         nzSize="small"
-                        nzTrigger="hover"
                         nzType="text"
+                        title="Очистить фильтры"
                     >
-                        <span nz-icon nzType="filter"></span>
+                        <span nz-icon nzType="close"></span>
                     </button>
-                    <nz-dropdown-menu #filterDropMenu="nzDropdownMenu">
-                        <div nz-menu style="padding: 4px;">
-                            <nz-input-group [nzSuffix]="suffixIcon">
-                                <input type="text" nz-input placeholder="Search" [(ngModel)]="nodes" />
-                            </nz-input-group>
-                            <ng-template #suffixIcon>
-                                <span nz-icon nzType="search"></span>
-                            </ng-template>
-                            <nz-tree
-                                style="height: 256px; padding: 4px; overflow-y: auto;"
-                                [nzData]="nodes"
-                                nzShowLine
-                                (nzClick)="nzEvent($event)"
-                            ></nz-tree>
-                        </div>
-                    </nz-dropdown-menu>
-                </nz-button-group>
-                <nz-tag
-                    [nzColor]="'green'"
-                    [nzBordered]="false"
-                    title="Фильтров применено - 5"
-                >5</nz-tag>
-                <div class="bi-filters-tags"
-                    [class.bi-filters-tags-hover]="isHovered" 
-                    (mouseenter)="onMouseEnter()" 
-                    (mouseleave)="onMouseLeave()"
-                >
-                    <nz-tag nzMode="closeable">
-                        <div class="bi-tag-title">заг-ок</div>
-                        <div class="bi-tag-type">тип</div>
-                        <div class="bi-tag-data">значение</div>
-                    </nz-tag>
-                    <nz-tag nzMode="closeable">
-                        <div class="bi-tag-title">заголовок</div>
-                        <div class="bi-tag-type">тип</div>
-                        <div class="bi-tag-data">значение</div>
-                    </nz-tag>
-                    <nz-tag nzMode="closeable">
-                        <div class="bi-tag-title">заголовок длинный</div>
-                        <div class="bi-tag-type">тип</div>
-                        <div class="bi-tag-data">значение</div>
-                    </nz-tag>
-                    <nz-tag nzMode="closeable">
-                        <div class="bi-tag-title">заголовок еще длиннее</div>
-                        <div class="bi-tag-type">тип</div>
-                        <div class="bi-tag-data">значение</div>
-                    </nz-tag>
-                    <nz-tag nzMode="closeable">
-                        <div class="bi-tag-title">заголовок 5</div>
-                        <div class="bi-tag-type">тип</div>
-                        <div class="bi-tag-data">значение</div>
-                    </nz-tag>
+    
                 </div>
-                <button
-                    nz-button
-                    nzSize="small"
-                    nzType="text"
-                    title="Очистить фильтры"
-                >
-                    <span nz-icon nzType="close"></span>
-                </button>
-
+                <!-- <div class="inner-content bi-fullscreen platform-only">
+                    <button
+                        nz-button [nzType]="'link'" [nzSize]="'small'"
+                        title="Развернуть конструктор"
+                    >
+                        <span nz-icon nzType="expand-alt"></span>
+                        < !-- nzType=" блаблаистина ? 'compress-alt' : 'expand-alt'" -- >
+                    </button>    
+                </div> -->
             </div>
-            <!--div class="inner-content bi-fullscreen platform-only">
-                <button
-                    nz-button [nzType]="'link'" [nzSize]="'small'"
-                    title="Развернуть конструктор"
-                >
-                    <span nz-icon nzType="expand-alt"></span> <!-- nzType=" блаблаистина ? 'compress-alt' : 'expand-alt'" -->
-                <!--/button>    
-            </div-->
-        </div>
-        <div class="bi-constructor-editor">
 
             <!--
             <div
@@ -480,51 +509,52 @@
 
             
 
-            <div class="bi-canvas">
+            <!-- <div class="bi-canvas">
                 <div class="bi-shapes">
 
                 </div>
-            </div>
-
-            <div class="bi-editor-ui">
+            </div> -->
+            <div class="bi-editor">
                 <div class="bi-editor-ui">
-                    <!-- <div class="bi-expand"> -->
-                        <!-- (click) = "biExpandEditor = !biExpandEditor" -->
-                        <!-- <button
-                            (click)="biEditorUIMap.setUIClasses('editor')"
-                            nz-button [nzType]="'link'" [nzSize]="'small'"
-                        >
-                            <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span>
-                        </button> -->
-                    <!-- </div> -->
-                    <nz-button-group class="bi-zoom">
-                        <button
-                            (click)="canvasScale = canvasScale - 1"
-                            (dblclick)="canvasScale = canvasScale - 10 >= CANVAS_SCALE_MIN ? canvasScale - 10 : CANVAS_SCALE_MIN"
-                            nz-button [nzSize]="'small'"
-                            nzTooltipTitle="Zoom out (Ctrl -)" nzTooltipPlacement="top" nz-tooltip
-                            [disabled]="canvasScale <= CANVAS_SCALE_MIN"
-                        >
-                            <span nz-icon nzType="minus"></span>
-                        </button>
-                        <button
-                            (click)="canvasScale = 100"
-                            nz-button [nzSize]="'small'"
-                            nzTooltipTitle="Zoom reset" nzTooltipPlacement="top" nz-tooltip
-                            [disabled]="canvasScale === 100"
-                        >
-                            <small>{{canvasScale}}%</small>
-                        </button>
-                        <button
-                            (click)="canvasScale = canvasScale + 1"
-                            (dblclick)="canvasScale = canvasScale + 10 <= CANVAS_SCALE_MAX ? canvasScale + 10 : CANVAS_SCALE_MAX"
-                            nz-button [nzSize]="'small'"
-                            nzTooltipTitle="Zoom in (Ctrl =)" nzTooltipPlacement="top" nz-tooltip
-                            [disabled]="canvasScale >= CANVAS_SCALE_MAX"
-                        >
-                            <span nz-icon nzType="plus"></span>
-                        </button>
-                    </nz-button-group>
+                    <div class="bi-editor-ui">
+                        <!-- <div class="bi-expand"> -->
+                            <!-- (click) = "biExpandEditor = !biExpandEditor" -->
+                            <!-- <button
+                                (click)="biEditorUIMap.setUIClasses('editor')"
+                                nz-button [nzType]="'link'" [nzSize]="'small'"
+                            >
+                                <span nz-icon [nzType]="biEditorUIMap.editor.isExpand ? 'compress' : 'expand'" nzTheme="outline"></span>
+                            </button> -->
+                        <!-- </div> -->
+                        <nz-button-group class="bi-zoom">
+                            <button
+                                (click)="canvasScale = canvasScale - 1"
+                                (dblclick)="canvasScale = canvasScale - 10 >= CANVAS_SCALE_MIN ? canvasScale - 10 : CANVAS_SCALE_MIN"
+                                nz-button [nzSize]="'small'"
+                                nzTooltipTitle="Zoom out (Ctrl -)" nzTooltipPlacement="top" nz-tooltip
+                                [disabled]="canvasScale <= CANVAS_SCALE_MIN"
+                            >
+                                <span nz-icon nzType="minus"></span>
+                            </button>
+                            <button
+                                (click)="canvasScale = 100"
+                                nz-button [nzSize]="'small'"
+                                nzTooltipTitle="Zoom reset" nzTooltipPlacement="top" nz-tooltip
+                                [disabled]="canvasScale === 100"
+                            >
+                                <small>{{canvasScale}}%</small>
+                            </button>
+                            <button
+                                (click)="canvasScale = canvasScale + 1"
+                                (dblclick)="canvasScale = canvasScale + 10 <= CANVAS_SCALE_MAX ? canvasScale + 10 : CANVAS_SCALE_MAX"
+                                nz-button [nzSize]="'small'"
+                                nzTooltipTitle="Zoom in (Ctrl =)" nzTooltipPlacement="top" nz-tooltip
+                                [disabled]="canvasScale >= CANVAS_SCALE_MAX"
+                            >
+                                <span nz-icon nzType="plus"></span>
+                            </button>
+                        </nz-button-group>
+                    </div>
                 </div>
             </div>
         </div>

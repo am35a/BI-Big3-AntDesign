@@ -148,6 +148,16 @@ export class ConstructorComponent implements OnInit {
     }
   ];
  
+  biEditorAsideUIView: string = 'col';
+
+  // biEditorAsideUI = {
+  //   viewString: 'col',
+  //   setAsideUI(view: string):void {
+  //     this.viewString = view;
+  //     biEditorUIMap.classString = '';
+      
+  //   }
+  // }
 
   // biExpandEditor: boolean = false;
   biEditorUIMap = {
@@ -160,14 +170,30 @@ export class ConstructorComponent implements OnInit {
     // editor: {
     //   isExpand: false
     // },
-    classString: '',
+    classString: 'bi-expand-sources bi-expand-settings',
     setUIClasses(block: string): void {
       switch (block) {
         case 'sources':
-          this.sources.isExpand = !this.sources.isExpand;
+          if (this.sources.isExpand && this.settings.isExpand) {
+            this.settings.isExpand = false
+          } else
+            if (this.sources.isExpand && !this.settings.isExpand) {
+              this.settings.isExpand = true
+            } else {
+              this.sources.isExpand = true
+            }
+          // this.sources.isExpand = !this.sources.isExpand;
           break;
         case 'settings':
-          this.settings.isExpand = !this.settings.isExpand;
+          if (this.sources.isExpand && this.settings.isExpand) {
+            this.sources.isExpand = false
+          } else
+            if (!this.sources.isExpand && this.settings.isExpand) {
+              this.sources.isExpand = true
+            } else {
+              this.settings.isExpand = true
+            }
+          // this.settings.isExpand = !this.settings.isExpand;
           break;
         default:
             this.sources.isExpand = false;
