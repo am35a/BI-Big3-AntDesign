@@ -20,10 +20,11 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzTreeModule, NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzFormLayoutType, NzFormModule } from 'ng-zorro-antd/form';
 // import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 // import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @Component({
   selector: 'app-metalayer',
@@ -59,7 +60,8 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
     // NzCheckboxModule
     // NzPopconfirmModule,
     // NzMessageService
-    NzTagModule
+    NzTagModule,
+    NzGridModule
   ],
   templateUrl: './metalayer.component.html',
   styleUrls: ['./metalayer.component.less'],
